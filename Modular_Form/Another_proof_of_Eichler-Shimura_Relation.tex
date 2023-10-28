@@ -1,0 +1,183 @@
+\section{Another Proof of Eichler-Shimura Relation}
+We will proof the Eichler-Shimura Relation by using the commutative diagram, this proof is mainly come from \cite{Fry05}.
+\subsection{Further discussion for Hecke operator}
+As we discuss above, there is a natural map between moduli space and modular curve,
+\begin{equation*}
+    \psi_1: {\rm S}_1(N) \longrightarrow X_1(N), \qquad [\mathbb{C}/\Lambda_{\tau} , 1/N +\Lambda_{\tau}]\mapsto \Gamma_1(N)\tau,
+\end{equation*}
+to divisor groups. To make $\psi_1$ algebraic, consider the following commutative diagram
+\begin{equation*}
+    \begin{CD}
+        {\rm S}_1(N) @>>> {\rm S}_1(1) \\
+        @V\psi_1VV @VVV\\
+        X_1(N) @>>> X_1(N)
+    \end{CD}
+\end{equation*}
+given by 
+\begin{equation*}
+    \begin{CD}
+        [\mathbb{C}/\Lambda_{\tau} , 1/N +\Lambda_{\tau}] @>>> [\mathbb{C}/\Lambda_{\tau}]\\
+        @VVV @VVV\\
+        \Gamma_1(N)\tau @>>> {\rm SL}_2(\mathbb{Z})\tau 
+    \end{CD}
+\end{equation*}
+As we discuss in Hecke operator, we have the following commutative diagram
+\begin{equation*}
+    \begin{CD}
+        {\rm Div}({\rm S}_1 (N)) @>T_p>> {\rm Div}({\rm S}_1(N)) \\
+        @V\psi_1VV @VV\psi_1V \\
+        {\rm Div(X_1(N))} @>T_p>> {\rm Div}(X_1(N))
+    \end{CD}
+\end{equation*}
+The map $\psi_1: {\rm S}_1(N) \longrightarrow Y_1(N)$ from the discussion on moduli space and modular curve. Now we restrict
+the vertical maps to degree-zero divisors and then the bottom row passes to Picard groups, giving a commutative diagram
+\begin{equation}
+    \begin{CD}
+        {\rm Div}^0({\rm S}_1 (N)) @>T_p>> {\rm Div}^0({\rm S}_1(N)) \\
+        @V\psi_1VV @VV\psi_1V \\
+        {\rm Pic}^0(X_1(N)) @>T_p>> {\rm Pic}^0(X_1(N))
+    \end{CD}
+    \label{eq:hecke_div_pic}
+\end{equation}
+
+\subsection{Proof of Eichler-Shimura Relation}
+
+Let $N$ be a positive integer and let $p\nmid N$ be prime. We will first give a description of the Hecke 
+operator $T_p$ at the level of Picard groups of reduced modular curves,
+\begin{equation*}
+    \widetilde{T_p}:{\rm Pic}^0(\widetilde{X}_1(N)) \longrightarrow {\rm Pic}^0(\widetilde{X}_1(N)).
+\end{equation*}
+By Theorem \ref{theorem:reduce_Picard} the Hecke operator $\left\langle d \right\rangle $ on $X_1(N)$
+reduces modulo $p$ and passes to Picard groups to give a commutative diagram 
+\begin{equation}
+    \begin{CD}
+        {\rm Pic}^0(X_1(N)) @>\left\langle d\right\rangle _*>> {\rm Pic}^0(X_1(N)) \\
+        @VVV @VVV \\
+        {\rm Pic}^0(\widetilde{X}_1(N)) @>\widetilde{\left\langle d \right\rangle}_*>> {\rm Pic}^0(\widetilde{X}_1(N)) 
+    \end{CD}
+    \label{eq:reduced_Picard}
+\end{equation}
+We want a similar diagram for the Hecke operator $T_p$ on ${\rm Pic}^0(X_1(N))$, 
+\begin{equation}
+    \begin{CD}
+        {\rm Pic}^0(X_1(N)) @>T_p>> {\rm Pic}^0(X_1(N)) \\
+        @VVV @VVV \\
+        {\rm Pic}^0(\widetilde{X}_1(N)) @>\widetilde{T_p}>> {\rm Pic}^0(\widetilde{X}_1(N)) 
+    \end{CD}
+    \label{eq:reduced_Picard2}
+\end{equation}
+However, since the top row here is not the pushforward of a morphism from $X_1(N)$ to $X_1(N)$, Theorem \ref{theorem:reduce_Picard}
+doesn't give this diagram as it gives Equation \ref{eq:reduced_Picard}.
+The way to compute the reduction $\widetilde{T_p}$ on ${\rm Pic}^0(\widetilde{X}_1(N))$ is to compute it first
+in the moduli space environment. We will establish a moduli sapce diagram analogous to Equation \ref{eq:reduced_Picard2} and then use 
+Igusa's Theorem to translate it to modular curves. Recall the moduli space interpretation of the Hecke operator $T_p$
+on the divisor group of ${\rm S}_1(N)$,
+\begin{equation}
+    T_p[E,Q]=\sum_C[E/C,Q+C].
+    \label{eq:T_p}
+\end{equation}
+The sum is taken over all order $p$ subgroups $C\subset E$ such that $C\cap \left\langle Q\right\rangle =\{0\}$,
+in this case all order $p$ subgroups since $p\nmid N$.\par
+Let $E$ be an elliptic curve over $\overline{\mathbb{Q}}$ with ordinary reduction at $\mathfrak{p}$ and let 
+$Q\in E$ be a point of order $N$. Let $C_0$ be the kernel of the reduction map $E[p]\longrightarrow \widetilde{E}[p]$,
+an order $p$ subgroup of $E$ since the ma surjects and the reduction is ordinary. 
+\begin{lemma}
+    For any order $p$ subgroup $C$ of $E$, 
+    \begin{equation*}
+        [\widetilde{E/C},\widetilde{Q+C}]=\begin{cases}
+            [\widetilde{E}^{\varphi_p},\widetilde{Q}^{\varphi_p}] & \text{if } C=C_0\\
+            [\widetilde{E}^{\varphi_p^{-1}},[p]\widetilde{Q}^{\varphi_p^{-1}}] & \text{if } C\neq C_0
+        \end{cases}
+    \end{equation*}
+    \label{lm}
+\end{lemma}
+There are $p+1$ order $p$ subgroups $C$ of $E$, one of which is $C_0$. Define the moduli space diamond 
+operator in characteristic $p$ to be 
+\begin{equation*}
+    \widetilde{\left\langle d\right\rangle }:\widetilde{{\rm S}}_1(N) \longrightarrow \widetilde{{\rm S}}_1(N), \qquad [E,Q]\mapsto [E,[d]Q], \quad (d,N)=1.
+\end{equation*}
+Then summing the formula of above Lemma over all order $p$ subgroups $C\subset E$ gives for a curve $E$ with ordinary
+reduction at $\mathfrak{p}$, 
+\begin{equation}
+    \sum_C [\widetilde{E/C}, \widetilde{Q+C}]=(\varphi_p+p\widetilde{\left\langle p\right\rangle }\varphi_p^{-1})[\widetilde{E},\widetilde{Q}].
+    \label{eq:reduced_T_p}
+\end{equation}
+
+The above Lemma extends to supersingular curves. If $E$ is an elliptic curve over $\overline{\mathbb{Q}}$ with supersingular
+reduction at $\mathfrak{p}$ and $Q\in E$ is a point of order $N$, then for any order $p$ subgroup $C$ of $E$ 
+\begin{equation*}
+    [\widetilde{E/C},\widetilde{Q+C}]=[\widetilde{E}^{\varphi_p}, \widetilde{Q}^{\varphi_p}]=[\widetilde{E}^{\varphi_p^{-1}},[p]\widetilde{Q}^{\varphi_p^{-1}}].
+\end{equation*}
+Summing this over the $p+1$ such subgroups $C$ of $E$, using the first expression for $[\widetilde{E/C},\widetilde{Q+C}]$ 
+once and the second expression $p$ times, shows that formula \ref{eq:reduced_T_p} applies to curves with supersingular
+reduction at $\mathfrak{p}$ as well. Therefore it applies to all curves with good reduction at $\mathfrak{p}$.\par
+If an elliptic curve $\widetilde{E}$ over $\overline{\mathbb{F}}_p$ has invariant $j\notin \{0,1728\}$ then the same
+holds for $\widetilde{E}^{\varphi_p}$ and $\widetilde{E}^{\varphi_p^{-1}}$. Formulas \ref{eq:T_p} and \ref{eq:reduced_T_p}
+combine with this observation to give a commutative diagram, where as before the primes mean to avoid some points,
+only finitely many in characteristic $p$,
+\begin{equation*}
+    \begin{CD}
+        {\rm S}_1(N)'_{\rm gd} @>T_p>> {\rm Div}({\rm S}_1(N)'_{\rm gd}) \\
+        @VVV @VVV\\
+        \widetilde{{\rm S}}_1(N)' @>\varphi_p+p\widetilde{\left\langle p \right\rangle }\varphi_p^{-1}>> {\rm Div}(\widetilde{{\rm S}}_1(N)')
+    \end{CD}
+\end{equation*}
+That is, $T_p$ on ${\rm S}_1(N)'_{\rm gd}$ reduces at $\mathfrak{p}$ to $\varphi_p+p\widetilde{\left\langle p \right\rangle }\varphi_p^{-1}$.
+This extends to divisor groups and then restricts to degree-0 divisors, 
+\begin{equation}
+    \begin{CD}
+        {\rm Div}^0({\rm S}_1(N)'_{\rm gd}) @>T_p>> {\rm Div}({\rm S}_1(N)'_{\rm gd}) \\
+        @VVV @VVV\\
+        {\rm Div}^0(\widetilde{{\rm S}}_1(N)') @>\varphi_p+p\widetilde{\left\langle p \right\rangle }\varphi_p^{-1}>> {\rm Div}(\widetilde{{\rm S}}_1(N)')
+    \end{CD}
+    \label{cd:T_p_lemma}
+\end{equation}
+We also have a commutative diagram 
+\begin{equation}
+    \begin{CD}
+        {\rm Div}^0(\widetilde{{\rm S}}_1(N)') @>\varphi_p+p\widetilde{\left\langle p \right\rangle }\varphi_p^{-1}>> {\rm Div}(\widetilde{{\rm S}}_1(N)') \\
+        @VVV @VVV \\
+        {\rm Pic}^0(\widetilde{X}_1(N)) @>\varphi_{p,*}+\widetilde{\left\langle p \right\rangle }_*\varphi_p^*>> {\rm Pic}^0(\widetilde{X}_1(N))
+    \end{CD}
+    \label{cd:lemma}
+\end{equation}
+A cube-shaped diagram now exist as follows, where all squares except possibly the back one commute.
+
+\begin{center}
+    \begin{tikzcd}[row sep=scriptsize, column sep=scriptsize]
+        & {\rm Pic}^0(X_1(N)) \arrow[rr,"T_p"] \arrow[dd] & & {\rm Pic}^0(X_1(N))  \arrow[dd] \\
+         {\rm Div}^0({\rm S}_1(N)'_{\rm gd}) \arrow[ur] \arrow[rr, crossing over, "T_p" near start] \arrow[dd] & & {\rm Div}^0({\rm S}_1(N)'_{\rm gd}) \arrow[ur] \\
+        & {\rm Pic}^0(\widetilde{X}_1(N))  \arrow[rr,"\varphi_{p,*}+\widetilde{\left\langle p \right\rangle }_*\varphi_p^* " near start] & & {\rm Pic}^0(\widetilde{X}_1(N))  \\
+        {\rm Div}^0({\rm \widetilde{S}}_1(N)') \arrow[rr,"\varphi_p+p\widetilde{\left\langle p \right\rangle }\varphi_p^{-1}"] \arrow[ur] & & {\rm Div}^0({\rm \widetilde{S}}_1(N)') \arrow[from=uu, crossing over] \arrow[ur] \\
+        \end{tikzcd}
+\end{center}
+To establish this, note that \par
+(1) The top square, a diagram in characteristic 0 relating $T_p$ on the moduli space and on the modular curve, is a 
+restriction of commutative diagram \ref{eq:hecke_div_pic} \par
+(2) The side squares, relating reduction at $p$ to the map from the moduli space to the modular curve, are commutative diagram
+from \ref{eq:Igusa_theorem} Igusa's Theorem.\par
+(3) The front square, relating $T_p$ on the moduli space to reduction at $p$, is commutative diagram \ref{cd:T_p_lemma} resulting from
+Lemma \ref{lm}. \par
+(4) The bottom square, relating maps in characteristic $p$ on the moduli space and on the modular curve, is commutative diagram \ref{cd:lemma}.\par
+Therefore, the back square is commute. Moreover, the cube commute. We get the following result
+\begin{theorem}[Eichler-Shimura Relation]
+    Let $p\nmid N$. The following diagram commutes:
+    \begin{equation*}
+        \begin{CD}
+            {\rm Pic}^0(X_1(N)) @>T_p>> {\rm Pic}^0(X_1(N)) \\
+            @VVV @VVV \\
+            {\rm Pic}^0(\widetilde{X}_1(N))  @>\varphi_{p,*}+\widetilde{\left\langle p \right\rangle }_*\varphi_p^*>> {\rm Pic}^0(\widetilde{X}_1(N))  \\
+        \end{CD}
+    \end{equation*}
+    In particular since $\widetilde{\left\langle p\right\rangle } $ acts trivially on $\widetilde{X}_0(N)$, the following
+    diagram commutes as well:
+    \begin{equation*}
+        \begin{CD}
+            {\rm Pic}^0(X_0(N)) @>T_p>> {\rm Pic}^0(X_0(N)) \\
+            @VVV @VVV \\
+            {\rm Pic}^0(\widetilde{X}_0(N))  @>\varphi_{p,*}+\varphi_p^*>> {\rm Pic}^0(\widetilde{X}_0(N))  \\
+        \end{CD}
+    \end{equation*}
+\end{theorem}
+
+

@@ -1,0 +1,286 @@
+\section{Elliptic Curves}
+\subsection{Elliptic curves in arbitrary characteristic}
+%A Weierstrass equation over $\mathbf{k}$ is any cubic equation of the form
+%\begin{equation}
+ %   E:y^2+a_1xy+a_3y=x^3+a_2x^2+a_4x+a_6, \ a_1,\ldots, a_6\in \mathbf{k}
+%\end{equation}
+%To study this, define 
+%\begin{equation*}
+ %   b_2=a_1^2 +4a_2, b_4=a_1a_3+2
+%\end{equation*}
+
+
+\begin{definition}
+    Let $\bar{\mathbf{k}}$ be an algebraic closure of the field $\mathbf{k}$. When a Weierstrass equation 
+    $E$ has nonzero discriminant $\Delta$ it is called nonsingular and the set 
+    \begin{equation*}
+        E= \{(x,y)\in \bar{\mathbf{k}}^2 \ \text{ satisfying $E(x,y)$}\} \cup \{\infty\}
+    \end{equation*}
+is called an elliptic curve over $\mathbf{k}$.
+\end{definition}
+\begin{definition}
+    For any algebraic extension $\mathbf{K}/\mathbf{k}$ the set of $\mathbf{K}$-points of $E$ is a subgroup
+    of $E$, 
+    \begin{equation*}
+        E(\mathbf{K})=\{P\in E-\{0_E\}:(x_P,y_P)\in \mathbf{K}^2\}\cup \{0_E\}
+    \end{equation*}
+\end{definition}
+Let $N$ be a positive integer. The structure theorem for the $N$-torsion subgroup $E[N]=ker([N])$ of an elliptic is 
+\begin{theorem}
+    Let $E$ be an elliptic curve over $\mathbf{k}$ and let $N$ be a positive integer. Then 
+    \begin{equation*}
+        E[N]\cong \prod E[p^{e_p}] \ \text{where $N=\prod p^{e_p}$}
+    \end{equation*}
+    Also, 
+    \begin{equation*}
+        E[p^e]\cong (\mathbb{Z}/p^e\mathbb{Z})^2 \ \text{if $p\neq {\rm char}(\mathbf{k})$}
+    \end{equation*}
+    Thus $E[N] \cong (\mathbb{Z}/p^e\mathbb{Z})^2 $ if ${\rm char}(\mathbf{k})\nmid N$. On the other hand,
+    if $p\nmid ={\rm char}(\mathbf{k})$, $E[p^e] \cong \mathbb{Z}/p^e\mathbb{Z}$ or $E[p^e]=\{0\}$ for all $e\geqslant1$.\par
+    In particular, if ${\rm char}(\mathbf{k})=p$ then either $E[p]\cong \mathbb{Z}/p\mathbb{Z}$, in which case $E$ is called
+    ordinary, or $E[p]=\{0\}$ and $E$ is supersingular. 
+\end{theorem}
+\begin{proposition}
+    Let $E$ be a Weierstrass equation over $\mathbf{k}$. Then \\
+    (a) $E$ describes an elliptic curve $\Longleftrightarrow$ \ $\Delta \neq 0$,\\
+    (b) $E$ describes a curve with a node $\Longleftrightarrow$ \ $\Delta=0$ and $c_4\neq0$,\\
+    (c) $E$ describes a curve with a cusp $\Longleftrightarrow$ \ $\Delta=0$ and $c_4=0$. 
+\end{proposition}
+\subsection{The reduction of elliptic curves over $\mathbb{Q}$}
+In this part, we will discuss reduction of elliptic curves over $\mathbb{Q}$ modulo a prime $p$. Consider a general Weierstrass
+equation $E$ defined over $\mathbb{Q}$, 
+\begin{equation*}
+    E: y^2+a_1 xy+a_3y=x^3+a_2x^2+a_4x+a_6, \ a_1,\ldots,a_6\in \mathbb{Q}
+\end{equation*}
+and consider admissible changes of variable over $\mathbb{Q}$. In particular the change of variable
+$(x,y)=(u^2x',u^3y')$ gives a Weierstrass equation $E'$ with coefficients $a_i'=a_i/u^i$. \par
+For any prime $p$ and any nonzero rational number $r$ let $\nu_p(r)$ denote the power of $p$ appearing in $r$,
+i.e., $\nu _p(p^e\cdot m/n)=e\in \mathbb{Z}$ where $p\nmid mn$. Also define $\nu_p(0)=+\infty$. This is the $p$-adic
+valuation, we have the following properties:
+\begin{align*}
+    \nu_p(rr') &=\nu_p(r)\nu_p(r') \\
+    \nu_p(r+r')  &\geqslant {\rm min}\{\nu_p(r),\nu_p(r')\} \text{ with equality if $\nu_p(r)\neq\nu_p(r')$},
+\end{align*}
+but occurring now in the context of number fields rather than function fields. For each prime $p$ let $\nu_p(E)$
+denote the smallest power of $p$ appearing in the discriminant of any integral Weierstrass equation equiavlent to 
+$E$, the minimum of a set of nonnegative integers,
+\begin{equation*}
+    \nu_p(E)={\rm min}\{\nu_p(\Delta(E')):E' \text{integral, equivalent to $E$}\}.
+\end{equation*}
+\begin{definition}
+    Define the global minimal discriminant of $E$ to be 
+    \begin{equation*}
+        \Delta_{\rm min}(E)= \prod _p p^{\nu_p(E)}.
+    \end{equation*}
+\end{definition}
+This is a fintie product since $\nu_p(E)=0$ for all $p\nmid \Delta(E)$. $E$ is isomorphic over $\mathbb{Q}$
+to an integral model $E'$ with discriminant $\Delta(E')=\Delta_{\rm min}(E)$. This is the global minimal 
+Weierstrass equation $E'$, the model of $E$ to reduce modulo primes. From now on we freely assume when 
+convenient that elliptic curves over $\mathbb{Q}$ are given in this form.\par
+The field $\mathbb{F}_p$ of $p$ elements can be viewed as $\mathbb{Z}/p\mathbb{Z}$. That is, $\mathbb{F}_p$
+is the image of a surjective homomorphism from the ring of rational integer$\mathbb{Z}$, reduction modulo $p\mathbb{Z}$,
+\begin{equation*}
+    \tilde{ }: \mathbb{Z}\longrightarrow \mathbb{F}_p,\quad \tilde{n}=n+p\mathbb{Z}
+\end{equation*} 
+This map reduces a global minimal Weierstrass equation $E$ to a Weierstrass equation $\tilde{E}$ over 
+$\mathbb{F}_p$, and this defines an elliptic curve over $\mathbb{F}_p$ if and only if $p\nmid \Delta_{\rm min}(E)$.
+The reduction of $E$ modulo $p$ (also called the reduction of $E$ at $p$) is 
+\begin{definition}
+    1. The reduction of $E$ is called \textit{good [nonsingular, stable]} if $\tilde{E}$ is again an elliptic curve, \par
+    (a) \textit{ordinary } if $\tilde{E}[p]\cong p\mathbb{Z}$\par
+    (b) \textit{supersingular} if $\tilde{E}=\{0\}$\\
+    2. The reduction of $E$ is called \textit{bad [singular]} if $\tilde{E}$ is not an elliptic curve, in which 
+    case it has only one singular point,\par
+    (a) \textit{multiplicative [semistable]} if $\tilde{E}$ has a node,\par
+    (b) \textit{additive [unstable]} if $\tilde{E}$ has a cusp.  
+\end{definition}
+Putting $E$ into global minimal form provides an almost complete description of a related integer $N_E$ called the algebraic
+conductor of $E$. The global minimal discriminant and the algebraic conductor are divisible by the same primes,
+\begin{equation*}
+    p\nmid \Delta_{\rm min}(E) \Longleftrightarrow p\nmid N_E,
+\end{equation*}
+so that $E$ has good reduction at all primes $p$ not dividing $N_E$. More specifically, the algebraic conductor takes 
+the form $N_E=\prod_p p^{f_p}$ where
+\begin{equation*}
+    f_p= \begin{cases}
+    0 & \text{if $E$ has good reduction at $p$,}\\
+    1 & \text{if $E$ has multiplicative reduction at $p$,}\\
+    2 & \text{if $E$ has additive reduction at $p$ and $p\notin \{2,3\}$,}\\
+    2+\delta_p & \text{if $E$ has additive reduction at $p$ and $p\in \{2,3\}$. }
+    \end{cases}
+\end{equation*}
+Here $\delta_2\leqslant 6$ and $\delta_3\leqslant 3$. \par
+We have already discuss the reduction of a Weierstrass equation $E$ over $\mathbb{Q}$ to $\tilde{E}$ over $\mathbb{F}_p$,
+we have not yet discussed reducing the points of the curve $\tilde{E}$. This will be done in the next subsection.
+\begin{definition}
+    Let $E$ be an elliptic curve over $\mathbb{Q}$. Assume $E$ is in reduced form. Let $p$ be a prime and let $\tilde{E}$
+    be the reduction of $E$ modulo $p$. Then 
+    \begin{equation*}
+        a_p(E)=p+1-|\tilde{E}(\mathbb{F}_p)|.
+    \end{equation*}
+\end{definition}
+\begin{proposition}
+     Let $E$ be an elliptic curve over $\mathbb{Q}$ and let $p$ be a prime such that $E$ has good reduction modulo 
+     $p$. Let $\varphi _{p,*}$ and $\varphi _{p}^*$ be the forward and reverse maps of ${\rm Pic}^0(\tilde{E})$ 
+     induced by $\varphi_p$. Then 
+     \begin{equation*}
+        a_p(E)= \varphi _{p,*}+\varphi _{p}^* \ \text{as endomorphisms of ${\rm Pic}^0(\tilde{E})$.   }
+     \end{equation*} 
+\end{proposition}
+
+\begin{proposition}
+    Let $E$ be an elliptic curve over $\mathbb{Q}$, and let $p$ be a prime such that $E$ has good reduction at $p$.
+    Then the reduction is 
+    \begin{equation*}
+        \begin{cases}
+            \text{\textit{ordinary}} &  \text{if } a_p(E)\nequiv0 ({\rm mod } \ p),\\
+            \text{\textit{supersingular}} &  \text{if } a_p(E)\equiv 0 ({\rm mod} \ p).
+        \end{cases}
+    \end{equation*}
+\end{proposition}
+
+\subsection{Reduction of the points on Elliptic curves}
+So far we have reduced a Weierstrass equation, but not the points themselves of the elliptic curve. To 
+reduce the points, we first show more generally that for any positive integer $n$ the maximal ideal 
+$\mathfrak{p}$ determines a reduction map 
+\begin{equation*}
+    \tilde{ }: \mathbf{P}^n(\overline{\mathbb{Q}})\longrightarrow \mathbf{P}^n(\overline{ \mathbb{F}_p})
+\end{equation*}
+
+\begin{proposition}
+    Let $E$ be an elliptic curve over $\overline{\mathbb{Q}}$ with good reduction at $\mathfrak{p}$. Then: \par
+    (a) The reduction maps on $N$-torsion, 
+    \begin{equation*}
+        E[N]\longrightarrow\tilde{E}[N],
+    \end{equation*}
+    is surjective for all $N$.\par
+    (b) Any isogenous $E/C$ where $C$ is a cyclic subgroup of order $p$ also has good reduction at $\mathfrak{p}$.
+    Furthermore, if $E$ has ordinary reduction at $\mathfrak{p}$ then so does $E/C$, and if $E$ has supersingular 
+    reduction at $\mathfrak{p}$ then so does $E/C$.
+\end{proposition}
+
+\subsection{Reduction of algebraic curves and maps}
+\begin{theorem}
+    Let $C$ be a nonsingular projective algebraic curve over $\mathbb{Q}$ with good reduction at $p$.
+    Then the reduction map $C\longrightarrow \widetilde{C}$ is surjective.
+\end{theorem}
+\begin{theorem}
+    Let $C$ and $C'$ be nonsingular projective algebraic curves over $\mathbb{Q}$ with good reduction at $p$, 
+    and let $C'$ have positive genus. For any morphism $h:C\longrightarrow C'$ the following diagram commutes:
+    $$\begin{CD}
+       C @>h>>  C' \\
+       @VVV @VVV \\
+       \widetilde{C} @>\tilde{h}>> \widetilde{C'}
+    \end{CD}$$
+    Also, ${\rm deg}(\tilde{h})={\rm deg}(h)$.
+\end{theorem}
+
+\begin{corollary}
+    Let $C'$ have positive genus. Then \par
+    (a) If $h:C\longrightarrow C'$ surjects then so does $\tilde{h}:\widetilde{C}\longrightarrow \widetilde{C'}$.\par
+    (b) If also $k:C'\longrightarrow C''$ and $C''$ has positive genus then 
+    \begin{equation*}
+        \widetilde{k\circ h}=\tilde{k}\circ \tilde{h}.
+    \end{equation*}
+    (c) If $h$ is an isomorphism then so is $\tilde{h}$.
+\end{corollary}
+
+\begin{theorem}
+    Let $C$ be a nonsingular projective algebraic curve over $\mathbb{Q}$ with good reduction at $p$. The map on 
+    degree-0 divisors induced by reduction, 
+    \begin{equation*}
+        {\rm Div}^0(C)\longrightarrow {\rm Div}^0(\widetilde{C}), \qquad \sum n_P(P) \mapsto \sum n_P(\widetilde{P}).
+    \end{equation*}
+    sends principal divisors to principal divisors and therefore further induces a surjection of Picard groups,
+    \begin{equation*}
+        {\rm Pic}^0(C)\longrightarrow {\rm Pic}^0(\widetilde{C}), \qquad [\sum n_P(P)] \mapsto [\sum n_P(\widetilde{P})].
+    \end{equation*}
+    Let $C'$ also be a nonsingular projective algebraic curve over $\mathbb{Q}$ with good reduction at $p$, and let $C'$
+    have positive genus. Let $h:C\longrightarrow C'$ be a morphism over $\mathbb{Q}$, and let 
+    $h_*:{\rm Pic}^0(C)\longrightarrow {\rm Pic}^0(C')$ and $\tilde{h}_*:{\rm Pic}^0(\widetilde{C})\longrightarrow {\rm Pic}(\widetilde{C'})$
+    be the induced forward maps of $h$ and $h$. Then the following diagram commutes: 
+    $$\begin{CD}
+        {\rm Pic}^0 (C) @>h_*>> {\rm Pic}^0(C')\\
+        @VVV @VVV\\
+        {\rm Pic}^0 (\widetilde{C}) @>\tilde{h}_*>> {\rm Pic}^0(\widetilde{C'})
+    \end{CD}$$
+    \label{theorem:reduce_Picard}
+\end{theorem}
+
+\begin{theorem}
+    Let 
+    \begin{equation*}
+        \varphi: E\longrightarrow E'
+    \end{equation*}
+    be an isogeny over $\overline{\mathbb{Q}}$ of elliptic curves over $\overline{\mathbb{Q}}$. Then there is a reduction
+    \begin{equation*}
+        \tilde{\varphi}: \widetilde{E}\longrightarrow \widetilde{E'}
+    \end{equation*} 
+    with the properties\par
+    (a) $\tilde{\varphi}$ is an isogeny.\par
+    (b) If $\psi:E'\longrightarrow E''$ is also an isogeny then $\widetilde{\psi \circ \varphi}=\tilde{\psi}\circ\tilde{\varphi}$.\par
+    (c) The following diagram commutes:
+    $$\begin{CD}
+        E @>\varphi>> E'\\
+        @VVV @VVV\\
+        \widetilde{E} @>\tilde{\varphi}>> \widetilde{E'}
+    \end{CD}$$\par
+    (d) ${\rm deg}(\tilde{\varphi})={\rm deg}(\varphi)$
+\end{theorem}
+
+\subsection{Igusa's Theorem}
+
+Let $\mathfrak{p}$ be a maximal ideal of $\overline{\mathbb{Q}}$ lying over $p$. An elliptic curve $E$ over $\overline{\mathbb{Q}}$
+with good reduction at $\mathfrak{p}$ has $j(E)\in \overline{\mathbb{Z}}_{(\mathfrak{p})}$, so this reduces at $\mathfrak{p}$
+to $\widetilde{j(E)}$ in $\overline{\mathbb{F}}_p$. We avoid $j=0,1728$ in the image. Denote this with a prime in the notation
+i.e., the suitable restriction of the moduli space ${\rm S}_1(N)$ over $\mathbb{Q}$ is 
+\begin{equation*}
+    {\rm S}_1(N)'_{\rm gd}=\{[E,Q]\in {\rm S}_1(N): E \text{has good reduction at $\mathfrak{p}$, } \widetilde{j(E)}\notin\{0,1728\} \}
+\end{equation*}
+
+In characteristic $p$, let $\widetilde{{\rm S}}_1(N)$ denote the moduli space over $\overline{\mathbb{F}}_p$, i,e., 
+it consists of equivalence classes $[E,Q]$ where $E$ is an elliptic curve over $\overline{\mathbb{F}}_p$ and $Q\in E$ is 
+a point of order $N$ and the equivalence relatio is isomorphism over $\overline{\mathbb{F}}_p$. Again avoid $j=0,1728$
+by defining 
+\begin{equation*}
+    \widetilde{{\rm S}}(N)'=\{[E,Q]\in \widetilde{{\rm S}}_1(N): j(E)\notin \{0,1728\} \}
+\end{equation*}
+The resulting reduction map is 
+\begin{equation*}
+    {\rm S}_1(N)'_{\rm gd} \longrightarrow \widetilde{{\rm S}}(N)', \qquad [E_j,Q] \mapsto [\widetilde{E}_j,\widetilde{Q}].
+\end{equation*}
+This is a surjection.\par
+Let $\sigma _{1,N}\in \mathbb{F}_p(j)[x]$ be the minimal polynomial of $x$-coordinate $x(Q)$. Define a field
+\begin{equation*}
+    \mathbf{K}_1(N)=\mathbb{F}_p(j)[x]/ \left\langle \sigma_{1,N}\right\rangle 
+\end{equation*}
+We have the result that $\mathbf{K}_1(N)\cap \overline{\mathbb{F}}_p=\mathbb{F}_p$, so $\mathbf{K}_1(N)$ is a function field over 
+$\mathbb{F}_p$.
+\begin{theorem}[Igusa' Theorem]
+    Let $N$ be a positive integer and let $p$ be a prime with $p\nmid N$. The modular curve $X_1(N)$ has good reduction at $p$.
+    There is an isomorphism of functions fields 
+    \begin{equation*}
+        \mathbb{F}_p(\widetilde{X}_1(N))\longrightarrow \mathbf{K}_1(N).
+    \end{equation*}
+    Moreover, reducing the modular curve is compatible with reducing the moduli space in that the following diagram commutes:
+    $$\begin{CD}
+        {\rm S}_1(N)'_{\rm gd} @>\psi_1>> X_1(N)\\
+        @VVV @VVV \\
+        \widetilde{{\rm S}}_1(N)' @>\tilde{\psi_1}>> \widetilde{X}_1(N).
+    \end{CD}$$
+    Here the top row is the map $[E_j,Q]\mapsto (j,x(Q))$ to the planar model followed by the birational equivalence to $X_1(N)$,
+    and similarly for the bottom row but in characteristic $p$.
+\end{theorem}
+The diagram extends to divisor groups, restricts to degree $0$ divisors, and takes principal divisors to principal divisors, giving
+a modified diagram as below:
+\begin{equation}
+    \begin{CD}
+        {\rm Div}^0({\rm S}_1(N)'_{\rm gd}) @>>> {\rm Pic}^0(X_1(N))\\
+        @VVV @VVV\\
+        {\rm Div}^0({\widetilde{{\rm S}}}(N)') @>>> {\rm Pic}^0(\widetilde{X}_1(N))
+    \end{CD}
+    \label{eq:Igusa_theorem} 
+\end{equation}
+
+
+

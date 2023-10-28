@@ -1,0 +1,396 @@
+\documentclass[11pt]{article} 
+\usepackage{amsmath} % AMS Math Package
+\usepackage{amsthm} % Theorem Formatting
+\usepackage{amssymb} % Math symbols such as \mathbb
+\usepackage{graphicx} % Allows for eps images
+\usepackage{multicol} % Allows for multiple columns
+\usepackage[dvips,letterpaper,margin=1in,bottom=1in]{geometry}
+\usepackage{hyperref}
+\usepackage{mathrsfs}
+\usepackage{amsmath,amscd}
+\usepackage[all,cmtip]{xy}
+\usepackage{bbm}
+\usepackage{amsmath,amsthm,amssymb,mathrsfs,amsfonts,dsfont,amsxtra,amscd}
+\usepackage{txfonts}
+\usepackage{amssymb}
+\usepackage{tikz-cd}
+\usepackage{biblatex}
+\addbibresource{Reference.bib}
+\usetikzlibrary{cd}
+
+\usepackage{thmtools}
+\declaretheorem[numberwithin=section]{theorem}
+\declaretheorem[numberwithin=section]{axiom}
+\declaretheorem[numberwithin=section]{lemma}
+\declaretheorem[numberwithin=section]{proposition}
+\declaretheorem[numberwithin=section]{claim}
+\declaretheorem[numberwithin=section]{conjecture}
+\declaretheorem[sibling=theorem]{corollary}
+\declaretheorem[numberwithin=section, style=definition]{definition}
+\declaretheorem[numberwithin=section, style=definition]{property}
+%\declaretheorem[numberwithin=section, style=definition]{problem}
+\declaretheorem[numberwithin=section, style=definition]{problem}
+\declaretheorem[numberwithin=section, style=definition]{example}
+\declaretheorem[numberwithin=section, style=definition]{exercise}
+\declaretheorem[numberwithin=section, style=definition]{observation}
+\declaretheorem[numberwithin=section, style=definition]{fact}
+\declaretheorem[numberwithin=section, style=definition]{construction}
+\declaretheorem[numberwithin=section, style=definition]{remark}
+\declaretheorem[numberwithin=section, style=remark]{question}
+ 
+
+\newenvironment{solution}{%\small%
+        \begin{trivlist} \item \textit{Solution}.  }{%
+            \hspace*{\fill} $\blacksquare$\end{trivlist}}
+
+%\newenvironment{proof}{%\small%
+       % \begin{trivlist} \item \textit{Proof}.  }{%
+             %   \hspace*{\fill} $\blacksquare$\end{trivlist}}
+ \pagestyle{myheadings}
+
+% ***********************************************************
+% ********************** END HEADER *************************
+% ***********************************************************
+
+\begin{document}
+
+\title{\bf \huge Modularity Theorem of Elliptic Curves and Eichler-Shimura Relation}
+\author{Wenrong Zou, Yulin Peng \\
+Advisor: Bingchen Lin
+}
+\date{March, 2023}
+\maketitle
+\newpage
+
+\tableofcontents
+
+\begin{abstract}
+    Modular forms is a significant part of  the main theorem in this article. In the first section, we will explain 
+    the definition and basic propties of modular forms, and then its simple connection with elliptic curves. 
+    And the second section will explain the Hecke operators, which not only important in the theorem of modular forms 
+    itself, but also select modular forms we need in the main theroem, whcih illustrate the deep connection between 
+    modular forms and elliptic curves. What's more, we will discuss the differential forms on the elliptic curve. In 
+    the last section, we will give two proofs of Eichler-Shimura Relation. 
+\end{abstract}
+
+\input{Modularforms.tex}
+
+\input{Meromorphic differentials.tex}
+\input{Elliptic_curve.tex}
+
+
+\section{Statement of the main theorem}
+\begin{theorem}[Eichler-Shimura]
+    Let $f=\sum c(n) q^n$ be a normalized newform on $\Gamma_0(N)$. If all $c(n)\in \mathbb{Z}$, then exist an elliptic curve $E_f$
+     of conductor $N$ such that $L(E_f,s)=L(f,s)$ 
+    
+\end{theorem}
+
+First, we want to know how to get a elliptic curve from a cusp form, then we consider the relation between L-function of cusp form 
+ and elliptic curve.
+\section{Get an Elliptic curve from a cusp form}
+A differential one-form on an open subset of $\mathbb{C}$ is simply an expression $\omega =fdz$, with $f$ a meromorphic function. Given a smooth
+Given a smooth curve $\gamma $
+\begin{equation*}
+    t\mapsto z(t):[a,b]\rightarrow \mathbb{C}, \ [a,b]=\{t\in \mathbb{R}| a\leqslant t \leqslant b\}
+\end{equation*}
+we can form the integral
+$\int_{\gamma} \omega =\int_{a}^{b} f(z(t))\cdot z'(t)\cdot dt \in \mathbb{C}$ 
+Now consider a compact Riemann surface $X$. If $\omega$ is a differential one-form on $x$ and $(U_i,z_i)$ is a coordinate neighbourhood for $X$, then 
+ $\omega |U_i=f_i(z_i)d{z_i}$. If $(U_j,z_j)$ is a second coordinate neighbourhood, so that $z_j=w(z_j)$ on $U_i \cap U_j$, then 
+
+ \begin{equation*}
+    f_i(z_i)dz_i=f_j(w(z_i))w'(z_i)dz_i
+ \end{equation*}
+ on  $U_i \cap U_j$. Thus, to give a differential one-form on $X$ is to give differential one-forms $f_idz_i$ on each $U_i$, satisfying the above equation
+ on the overlaps. For any (real) curve $\gamma: I \rightarrow X$ and differential one-form $\omega$ on $X$, the integral $\int_{\gamma}\omega$
+ make sense.
+\begin{definition}
+    A differential one-form is holomorphic if it is represented on the coordinated neighbourhoods by forms $fdz$ with $f$ holomorphic.
+\end{definition} 
+\subsection{Jacobian variety of a Riemann surface}
+Consider a Riemann surface with genus 1 and a nonzero holomorphic differential one-form $\omega$. We choose a point $P_0\in X$ and try to 
+define a map 
+\begin{equation*}
+    P\mapsto \int_{P_o}^{P}\omega : X\rightarrow \mathbb{C}
+\end{equation*}
+This is not well-defined because the value of the integral depends on the path we choose from $P_0$ to $P$ $--$ nonhomotopic paths
+may give different answers. From the result in the Algebraic Topology, if we choose a basis $\{\gamma_1,\gamma_2\}$ for $H_1(X,\mathbb{Z})$
+(equivalently, a basis for $\pi_1(X,P_0)$), then the integral is well-defined modulo the lattice $\Lambda$ in $\mathbb{C}$ generated by 
+\begin{equation*}
+    \int_{\gamma_1} \omega, \int_{\gamma_2}\omega.
+\end{equation*}
+In this way, we obtain an isomorphism 
+\begin{equation*}
+    P\mapsto \int_{P_0}^{P} \omega:X\rightarrow \mathbb{C}/\Lambda
+\end{equation*}
+Jacobi and Abel made a similar construction for any compact Riemann surface $X$. It is an important fact that the holomorphic differential
+one-form on a Riemann surface of genus $g$ form a complex vector space $\Omega^1(X)$ of dimension $g$. Now we suppose that $X$ is 
+a Riemann sufrce with genus $g$, and let $\omega_1,\ldots ,\omega_g$ be a basis for the vector space $\Omega^1(X)$ of holomorphic one-forms
+on $X$. Choose a point $P_0\in X$. Viewing $X$ as a sphere with $g$ handles where $g$ is the genus of $X$, let 
+$A_1,\ldots,A_g$ be longitudinal loops around each handle like arm-bands, and let $B_1,\ldots,B_g$ be latitudinal loops arod each handle like
+equators.Then consider the (first) homology group of $X$,
+\begin{equation*}
+    H_1(X,\mathbb{Z})=\mathbb{Z}\int_{A_1}\oplus\cdots \oplus \mathbb{Z}\int_{A_g}\oplus \mathbb{Z}\int_{B_1}\oplus\cdots \oplus \mathbb{Z}\int_{B_g}
+    \cong \mathbb{Z}^{2g}
+\end{equation*}
+Similarily, there is a map
+\begin{equation*}
+    P\mapsto (\int_{P_0}^{P}\omega_1,\ldots,\int_{P_0}^{P}\omega_g):X\rightarrow \mathbb{C}^g/\Lambda
+\end{equation*}
+is well-defined. The quotient $\mathbb{C}^g/\Lambda$ is a comples manifold, called the jacobian variety ${\rm Jac}(X)$ of $X$, which
+can be considered to be a higher-dimensional analogue of $\mathbb{C}/\Lambda$. Note that it is a commutative group.\par
+We can define ${\rm Jac}(X)$ more canonically. Let $\Omega^1(X)^{\spcheck}$ be the dual of $\Omega^1(X)$ as a complex vector space.
+For any $\gamma\in H_1(X,\mathbb{Z})$, 
+\begin{equation*}
+    \omega\mapsto\int_{\gamma}^{} \omega
+\end{equation*}
+is an element of $\Omega^1(X)^{\spcheck}$, and in this way we obtain an injective homomorphism
+\begin{equation*}
+    H_1(X,\mathbb{Z})\hookrightarrow \Omega^1(X)^{\spcheck}
+\end{equation*}
+which identifies $H_1(X,\mathbb{Z})$ with a lattice in $\Omega^1(X)^{\spcheck}$. Define 
+\begin{equation*}
+    {\rm Jac}(X)=\Omega^1(X)^{\spcheck}/H_1(X,\mathbb{Z}).
+\end{equation*}
+When we fix a point $P_0\in X$, any $P\in X$ defines an element $F_P$ of ${\rm Jac}(X)$,
+\begin{equation*}
+    F_P:\omega\mapsto \int_{P_0}^{P}\omega \ \ mod \ H_1(X,\mathbb{Z})
+\end{equation*}
+and so we get a map $X\rightarrow {\rm Jac}(X)$. The choice of a different $P_0$ gives a map that differs from the first only by a translation.\par
+
+Now we apply above theory to the Riemann surface $X_0(N)$. We have known that $X_0(N)$ is a Riemann surface with genus 1. 
+\begin{proposition}
+    Let $\pi$ be the quotient map $\mathbb{H}^*\rightarrow\Gamma_0(N)\setminus \mathbb{H}^*$, and for any holomorphic differential 
+    $\omega$ on $\Gamma_0(N)\setminus \mathbb{H}^*$, set $\pi^*\omega=fdz$. Then $\omega\mapsto f $ is an isomorphism from the space of holomorphic
+    differentials on $\Gamma_0(N)\setminus \mathbb{H}^*$ to $\mathcal{S} _2 (\Gamma_0(N))$.
+\end{proposition}
+
+By the above Proposition we get an isomorphism $\mathcal{S_2} (\Gamma _0(N)) \cong \Omega^1 (X_0(N))$. 
+The Hecke operator $T(n)$ acts on $\mathcal{S}_2(\Gamma_0(N))$, and hence on the vector space $\Omega^1(X_0(N))$ and its dual.
+Moreover, the Hecke operator acts on ${\rm Jac}(X)$.
+\begin{proposition}
+    There is a canonical action of $T(n)$ on $H_1(X_0(N),\mathbb{Z})$, which is compatible with the map 
+    $H_1(X_0(N),\mathbb{Z})\rightarrow \Omega^1(X_0(N))^{\spcheck}$. In other words, the action of $T(n)$ on $\Omega^1(X_0(N))^{\spcheck}$
+    stabilizes its sublattice $H_1(X_0(N),\mathbb{Z})$, and therefore induces an action on the quetient ${\rm Jac}(X_0(N))$.
+\end{proposition}
+Now let $f=\sum c(n) q^n$ be a normalized newform for $\Gamma_0(N)$ with $c(n)\in \mathbb{Z}$. The map 
+\begin{equation*}
+    \alpha \mapsto \alpha(f):\Omega^1(X_0(N))^{\spcheck}\rightarrow \mathbb{C}
+\end{equation*}
+identifies $\mathbb{C}$ with the largest quotient of $\Omega^1(X_0(N))^{\spcheck}$ on which each $T(n)$ acts as multiplication
+by $c(n)$. The image of $H_1(X_0(N,\mathbb{Z}))$ is a lattice $\Lambda_f$, and we set $E_f=\mathbb{C}/\Lambda_f$ $--$ it is an elliptic
+curve over $\mathbb{C}$. Note that have constructed maps
+\begin{equation*}
+    X_0(N)\rightarrow {\rm Jac}(X_0(N))\rightarrow E_f
+\end{equation*}
+Moreover, the inverse image of the differential on $E_f$ represented by $dz$ is the differential on $X_0(N)$ represented by $fdz$.
+
+\begin{theorem}
+    Let $f=\sum c(n)q^n$ be a newform in $\mathcal{S} (\Gamma_0(N))$, normalized to have $c(1)=1$, and assume that all $c(n)\in \mathbb{Z}$.
+    Then there exists an elliptic curve $E_f$ and a map $\alpha:X_0(N)\rightarrow E_f$ with the following properties:\par
+    (a) \ $\alpha$ factors uniquely through ${\rm Jac}(X_0(N)),$
+    \begin{equation*}
+        X_0(N)\rightarrow {\rm Jac}(X_0(N)) \rightarrow E_f,
+    \end{equation*}  
+    and the second map realizes $E_f$ as the largest quotient of ${\rm Jac}(X_0(N))$ on which the endomorphism $T(n)$ and $c(n)$ of 
+    ${\rm Jac}(X_0(N))$ agree.\par
+    (b) \ The inverse image of an invariant differential $\omega$ on $E_f$ under $\mathbb{H}\rightarrow X_0(N) \rightarrow E_f$ is 
+    a nonzero rational multiple of $fdz$.
+    \label{Thm:Modularity}
+
+\end{theorem}
+
+\section{The relation between the L-Series of $E_f$ and the L-Series of $f$ }
+
+\subsection{The Hecke correspondence}
+\begin{definition}
+    Let $X$ and $X'$ be projective nonsingular curves over a algebraically closed field $k$. A correspondence $T$ between $X$ and $X'$ 
+    is a pair of finite surjective regular maps, denoted $T:X \vdash X' $
+    \begin{equation*}
+        X \stackrel{\alpha}{\longleftarrow} Y \stackrel{\beta}{\longrightarrow}X'
+    \end{equation*}
+\end{definition}
+
+A correspondence $T$ can be viewed as a many-valued map $X\rightarrow X'$ sending a point $P\in X(k)$ to the set $\{\beta(Q_i)|Q_i\in \alpha^{-1}(P)\}$
+As we defined before, $\rm{Div} (X)$ is the free Abelian group on the points of $X$, so the element of $\rm{Div} (X)$ is a finite sum 
+\begin{equation*}
+    D=\sum n_P [P], \ n_p\in \mathbb{Z}, \ P\in X(k)
+\end{equation*} 
+Therefore, a correspondence $T$ then induces a map between $T:\rm{Div} (X) \rightarrow \rm{Div} (X')$
+\begin{equation*}
+    [P] \mapsto \sum_i [\beta(Q_i)]
+\end{equation*}
+This map multiplies the degree of a divisor by $\rm{deg} (\alpha)$. It therefore sends the divisors of degree $0$ in $\rm{Div} (X)$
+to the divisors of degree $0$ in $\rm{Div} (X')$ and sends the principal divisors of $\rm{Div} (X)$
+to the principal divisors of $\rm{Div} (X')$. Define $J(X):=\rm{Div}^{0} (X)/{principal divisors}$. Then a correspondence $T$ induces
+a map $T:J(X)\rightarrow J(X')$.
+\begin{definition}
+    Let $T$ is a correspondence 
+    \begin{equation*}
+        X \stackrel{\alpha}{\longleftarrow} Y \stackrel{\beta}{\longrightarrow}X
+    \end{equation*}
+    then the transpose $T^{tr}$ of $T$ is the correspondence 
+    \begin{equation*}
+        X \stackrel{\beta}{\longleftarrow} Y \stackrel{\alpha}{\longrightarrow}X
+    \end{equation*}
+\end{definition}
+Let $T$ is a correspondence $T:X\vdash X'$ 
+\begin{equation*}
+        X \stackrel{\alpha}{\longleftarrow} Y \stackrel{\beta}{\longrightarrow}X'
+\end{equation*}
+For any regular function $f$ on $X'$, we define $T(f)$ to be the regular function on $X$, $T(f): P\mapsto \sum f(\beta Q_i)$.
+So $T$ induces a homomorphism $\Omega^{1}\rightarrow\Omega^{1}(X)$.
+Now we use above theory on the modular curve $Y_0(N)$. 
+\begin{definition}
+    Let $p \nmid N$, the Hecke correspondence $T(p):Y_0(N)\rightarrow Y_0(N)$ is defined below
+    \begin{equation*}
+        Y_0(N)\stackrel{\alpha}{\longleftarrow}Y_0(pN) \stackrel{\beta}{\longrightarrow} Y_(N)
+    \end{equation*}
+where $\alpha$ is the projection map and $\beta$ is the map induced by $z\mapsto pz:\mathbb{H}\rightarrow\mathbb{H}$
+\end{definition}
+First, we consider the point in $Y_0(N)$. As we discuss before, a point of $Y_0(pN)$ is represented by a pair of $(E,S)$ where $E$
+ is an elliptic curve and $S$ is a cyclic subgroup of $E$ of order $pN$. Because $p\nmid N$, any subgroup $S$ of order $pN$ can be 
+ decomposes uniquely into subgroups of $N$ and $p$, $S=S_N \times S_p$. The map $\alpha$ sends the point represented by $(E,S)$ 
+ to the point represented by $(E,S_N)$ and $\beta$ sends $(E,S)$ to the point represented by $(E/S_p,S/S_p)$. Recall that $E_p$ 
+ has $p+1$ cyclic subgroups, the correspondence is $1:p+1$.\par
+ The unique extension of $T(p)$ to a correspondence $X_0(N)\rightarrow X_0(N)$ acts on $\Omega^{1}(X_0(N))=\mathcal{S}_2 (\Gamma_0(N))$
+
+ \subsection{The Frobenius map}
+ Let $C$ be a curve defined over the algebraic closure $\mathbb{F}^{al}$ of $\mathbb{F}_p$. If $C$ defined by equations 
+ \begin{equation*}
+    \sum a_{i_0i_1\cdots}X_0^{i_0}X_1^{i_1}\cdots=0
+ \end{equation*}
+
+ then we let $C^{(p)}$ be the curve defined by the equations 
+ \begin{equation*}
+    \sum a_{i_0i_1\cdots}^p X_0^{i_0}X_1^{i_1}\cdots=0
+ \end{equation*}
+ and we let the Frobenius map $\varphi: C\rightarrow C{(p)}$ send the point ${(b_0:b_1:b_2:\cdots)}$ to ${(b_0^p:b_1^p:b_2^p:\cdots)}$.
+ If $C$ is defined over $\mathbb{F}_p$, then $C=C^{(p)}$ and $\varphi_p$ is the Frobenius map defined earlier.\par
+ Recall a result from the field extension.
+ \begin{proposition}
+    Let $K$ be a field extension of $F$. If $S$ and $I$ are the separable and purely inseparable closures of $F$ in $K$, respectively,
+    then $S$ and $I$ are field extension of $F$ with $S/F$ separable, $I/F$ purely inseparable, and $S\cup I=F$. If $K/F$ s algebraic,
+    then $K/F$ is purely inseparable.
+ \end{proposition}
+
+ Recall that a nonconstant morphism $\alpha: C\rightarrow C'$ of curves defines an inclusion $\alpha^*: k(C')\hookrightarrow k(C)$
+ of function fields, and that the degree of $\alpha$ is defined to be $[k(C):\alpha^*k(C')]$. The map $\alpha$ is said to be separable
+ or purely inseparable according as $k(C)$ is a separable or purely inseparable extension of $\alpha^*k(C')$. If the separable degree 
+ of $k(C)$ over $\alpha^*k(C')$ is $m$, then the map $C(k^{al})\rightarrow C'(k^{al})$ is $m:1$, except over the finite set where 
+ it is ramified.
+ \begin{proposition}
+    The Frobenius map $\varphi_p: C\rightarrow C^{(p)}$ is purely inseparable of degree $p$, and any purely inseparable map 
+    $\varphi: C\rightarrow C'$ of degree $p$ (of complete nonsingular curves) factors as 
+    \begin{equation*}
+        C\stackrel{\varphi_p}{\longrightarrow}C^{(p)}\stackrel{\approx }{\longrightarrow} C'
+    \end{equation*}
+    \label{Thm:Frobenius_map}
+ \end{proposition}
+
+ \subsection{The Eichler-Shimura relation}
+ For almost all primes $p\nmid N$, $X_0(N)$ will reduce to a nonsingular curve $\tilde{X}_0(N)$. In fact, it is known that $X_0(N)$
+ has a good reduction for all primes $p\nmid N$, but this is hard to prove. It is easy to see that $X_0(N)$ does not have good reduction
+  at primes dividing $N$.
+ \begin{theorem}
+    For a prime $p$ where $X_0(N)$ has good reduction,
+    \begin{equation*}
+        \tilde{T}(p)=\varphi_p + \varphi_p^{tr}
+    \end{equation*}
+ \end{theorem}
+\begin{proof}
+    We sketch a proof that they agree as many-valued maps on an open subset of $\tilde{X_0}(N)$. We will state another proof
+    by using the commutative diagram. \par
+    As we discuss above, there is a isomorphism between $\psi_0: {\rm S_0}(N)\stackrel{\sim }{\longrightarrow} Y_0(N)$, where 
+    \begin{equation*}
+        {\rm S_0}(N)=\{\text{enhanced elliptic curves for $\Gamma_0(N)$}\}/\sim
+    \end{equation*} 
+    Over $\mathbb{Q}_p^{\rm al}$ we have the following description of $T(p)$: a point $P$ on $Y_0(N)$ is represented by a 
+    homomorphism of elliptic curves $\alpha:E\rightarrow E'$ with cyclic kernel of order $N$; let $S_0,\ldots,S_p$ be the 
+    subgroups of order $p$ in $E$; then $T_p(P)=\{Q_0,\ldots ,Q_p\}$ where $Q_i$ is represented by $E/S_i \rightarrow E'/\alpha(S_i)$.\par
+    Consider a point $\tilde{P}$ on $\tilde{X_0}(N)$ with coordinates in $\mathbb{F}$ - by Hensel's lemma it will lift to a 
+    point on $X_0(N)$ with coordinates in $\mathbb{Q}_p^{\rm al}$. Ignoring a finite number of points of $\tilde{X_0}(N)$,
+     we can suppose $\tilde{P}\in \tilde{Y}_0(N)$ and hence is represented by a map $\tilde{\alpha}:\tilde{E}\rightarrow \tilde{E'}$
+     where $\alpha: E\rightarrow E'$ has cyclic kernel of order $N$. By ignoring a further finite number of points, we 
+     may suppose that $\tilde{E}$ has $p$ points of order dividing $p$.\par
+     Let $\alpha: E\rightarrow E'$ be a lifting of $\tilde{\alpha}$ to $\mathbb{Q}_p^{\rm al}$. The reduction map 
+     $E_p(\mathbb{Q}_p^{\rm al})\rightarrow \tilde{E_p}(\mathbb{F}_p^{\rm al})$ has a kernel of order $p$. Renumber the 
+     subgroups of order $p$ in $E$ so that $S_0$ is the kernel of this map. Then each $S_i, i\neq 0$, maps to subgroup of 
+     order $p$ in $\tilde{E}$.\par
+     Then map $\tilde{T}(p): \tilde{E}\rightarrow \tilde{E}$ has factorizations
+     \begin{equation*}
+        \tilde{E}\stackrel{\varphi}{\longrightarrow} \tilde{E}/S_i \stackrel{\psi}{\longrightarrow} \tilde{E}, \ i=0,1, \ldots , p.
+     \end{equation*}
+     When $i=0$, $\varphi$ is a purely inseparable map of degree $p$ (it is the reduction of the map $E\rightarrow E/S_0$
+     - it therefore has degree $p$ and has zero kernel), and so $\psi$ must be separable of degree $p$ (we are assuming 
+     $\tilde{E}$ has $p$ points of order dividing $p$). By Proposition \ref{Thm:Frobenius_map} shows that there is an isomorphism 
+     $\tilde{E}^{(p)} \rightarrow \tilde{E}/S_0$. Similarily $\tilde{E'}^{(p)}\approx \tilde{E'}/S_0$. Therefore $Q_0$ is represented
+     by $\tilde{E}^{(p)}\rightarrow\tilde{E'}^{(p)}$, which also represents $\varphi _p(P)$. \par
+     When $i\neq 0$, $\varphi$ is separable (its kernel is the reduction of $S_i$), and so $\psi$ is purely inseparable.
+     Therefore $\tilde{E}\approx \tilde{E}_i^{(p)}$, and similarly $\tilde{E'}\approx \tilde{E'_i}^{(p)}$, where 
+     $\tilde{E_i}=\tilde{E}/S_i$ and $\tilde{E'_i}=\tilde{E'}/S_i$ It follows that $\{Q_1,\ldots, Q_p\}=\varphi^{-1}(P)=\varphi^{\rm tr}(P)$.
+
+\end{proof}
+
+
+ \subsection{The zeta function of an elliptic curve}
+For an Elliptic curve $E=\mathbb{C}/\Lambda$ over $\mathbb{C}$, the degree of a nonzero endomorphism of $E$ is the 
+determinant of $\alpha$ acting on $\Lambda$. More generally, for an elliptic curve $E$ over an algebraically closed
+field $\mathbf{k}$, and $l$ be a prime not equal to the characteristic of $\mathbf{k}$, 
+\begin{equation*}
+    {\rm deg}(\alpha)={\rm det}(\alpha|T_lE)
+\end{equation*} 
+where $T_lE$ is the Tate module $T_lE=\lim_{\longleftarrow} E(\mathbf{k})_{l^n} $ of $E$.
+ \begin{proposition}
+Let $E$ be an elliptic curve over $\mathbb{F}_p$. Then the trace of the Frobenius endomorphism $\varphi_p$ on $T_l E$ has the following formula
+\begin{equation*}
+    {\rm Tr}(\varphi_p|T_l E)= a_p:=p+1-N_p.
+\end{equation*} 
+\label{pro:def_TatesM}
+ \end{proposition}
+
+ \begin{corollary}
+    Let $E$ be an elliptic curve over $\mathbb{F}_p$. Then 
+    \begin{equation*}
+        {\rm Tr} (\varphi_p^{tr}|T_l E)={\rm Tr}(\varphi_p|T_l E).
+    \end{equation*}
+    \label{cor:trace_transpose}
+\end{corollary}
+ \subsection{The action of the Hecke operators on $H_1(E,\mathbb{Z})$}
+ \begin{corollary}
+    For any $p\nmid N$,
+    ${\rm Tr}(T(p)|H_1(X_0(N),\mathbb{Z}))={\rm Tr }(T(p)|\Omega^1(X_0(N)))+\overline{{\rm Tr}(T(p)|\Omega^1(X_0(N)))}$
+    \label{cor:Tp_on_homology_group}
+ \end{corollary}
+ \begin{proof}
+    The proof of above Proposition and Corollary is straightforward calculation on \cite{Mil06}, which we will skip. 
+ \end{proof}
+
+ \begin{theorem}
+    Consider an $f=\sum c(n)q^n$ and a map $X_0(N)\rightarrow E$, as in Theorem \ref{Thm:Modularity}. For all $p\nmid N$,
+    \begin{equation*}
+        c(p)=a_p:=p+1-N_p
+    \end{equation*}
+ \end{theorem}
+ \begin{proof}
+    We assume initially that $X_0(N)$ has genus $1$. Then $X_0(N) \longrightarrow E$ is an isogeny, and we can take 
+    $E=X_0(N)$. Let $p$ be a prime not dividing $N$. Then $E$ has good reduction at $p$, and for any $l\neq p$, the 
+    reduction map $T_lE \longrightarrow T_l\widetilde{E}$ is an isomorphism. The Eichler-Shimura Relation states that 
+    \begin{equation*}
+        \widetilde{T}(p)=\varphi_p+\varphi_p^{\rm tr}
+    \end{equation*}
+    We take trace on $T_l\widetilde{E}$. According to the Proposition \ref{pro:def_TatesM}, Corollary \ref{cor:trace_transpose} and 
+    Corollary \ref{cor:Tp_on_homology_group}, we get the following result
+    \begin{equation*}
+        c(p)=a_p:=p+1-N_p
+    \end{equation*}
+ \end{proof}
+
+ \input{Another_proof_of_Eichler-Shimura_Relation.tex}
+
+We main use the book \cite{Mil06} and \cite{Fry05} and \cite{Atk70}
+\clearpage
+
+ \printbibliography[title={Bibliography}]
+\end{document}

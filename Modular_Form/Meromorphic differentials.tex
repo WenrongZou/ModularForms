@@ -1,0 +1,101 @@
+\section{Meromorphic Differentials}
+\subsection{Automorphic Forms}
+Let $\hat{\mathbb{C}}$ denote the Riemann sphere $\mathbb{C}\cup \{\infty\}$. Recall that for an open subset 
+$V\subset \mathbb{C}$, a function $f:V\rightarrow \hat{\mathbb{C}}$ is meromorphic if it is the zero function
+or it has a Laurent series expansion truncated from the left about each point $\tau \in V$,
+\begin{equation*}
+    f(t)=\sum_{n=m}^{\infty} a_n (t-\tau)^n \ \text{for all $t$ in some disk about $\tau$,}
+\end{equation*}
+with coefficients $a_n \in \mathbb{C}$ and $a_m \neq 0$. The starting index $m$ is the order of $f$ at $\tau$, 
+which also means ``order of vanishing" and denoted $\nu_{\tau} (f)$; the zero function is defined to have 
+order $\nu_{\tau}(f)=\infty$. The function $f$ is holomorphic at $\tau$ when $\nu_{\tau}(f)\geqslant 0$,
+it vanishes at $\tau$ when $\nu_{\tau}>0$, and it has a pole at $\tau$ whe $\nu_{\tau}(f)<0$. The set of meromorphic
+functions on $V$ forms a field.\par
+Let $\Gamma$ be a congruence subgroup of ${\rm SL_2} (\mathbb{Z})$. Recall the weight-$k$ operator, 
+\begin{equation*}
+    (f[\gamma]_k)(\tau)=j(\gamma,\tau)^{-k}f(\gamma(\tau)), \ \ j(\gamma,\tau)=c\tau +d \text{ for } \gamma=
+    \begin{bmatrix}
+        a & b \\
+        c & d
+    \end{bmatrix}.
+\end{equation*}
+As we mentioned before, a meromorphic function $f:\mathbb{H}\rightarrow \hat{\mathbb{C}}$ is called weakly
+modular of weight $k$ with respect to $\Gamma$ if $f[\gamma]_k=f$ for all $\gamma\in \Gamma$. To discuss 
+meromorphy of $f$ at $\infty$, let $h$ be the smallest positive integer such that 
+$\begin{bmatrix}
+    1 & h \\
+    0 & 1
+\end{bmatrix} \in \Gamma$. Thus $f$ has period $h$. If also $f$ has no poles in some region 
+$\{\tau \in \mathbb{H}:{\rm Im}(\tau)>c\}$ then $f$ has a Laurent series on the corresponding punctured disk
+about $0$,
+\begin{equation*}
+    f(\tau)=\sum_{n=-\infty}^{\infty} a_n q_h^n \ \text{  if ${\rm Im}(\tau)>0$, where $q_h=e^{2\pi i \tau /h}$}.
+\end{equation*}
+Then $f$ is meromorphic at $\infty$ if this series truncates from the left, starting at some $m\in\mathbb{Z}$
+where $a_m\neq0$, or if $f=0$. The order of $f$ ar $\infty$, denoted $\nu_{\infty}(f)$, is again defined as the
+starting index $m$ except when $f=0$, in which case $\nu_{\infty}(f)=\infty$. Now automorphic forms are defined
+the same way as modular forms except with meromorphy in place of holomorphy.
+
+
+\begin{definition}
+    Let $\Gamma$ be a congruence subgroup of ${\rm SL_2}(\mathbb{Z})$ and let $k$ be an integer. A function 
+    $f:\mathbb{H}\rightarrow\hat{\mathbb{C}}$ is an automorphic form of weight $k$ with respect to $\Gamma$ 
+    if \par
+    (1) \ $f$ is meromorphic,\par
+    (2) \ $f$ is weight-$k$ invariant under $\Gamma$,\par
+    (3) \ $f[\alpha]_k$ is meromorphic at $\infty$ for all $\alpha\in {\rm SL_2}(\mathbb{Z})$. \par
+    The set of automorphic forms of weight $k$ with respect to $\Gamma$ is denoted $\mathcal{A}_k(\Gamma)$.
+\end{definition}
+
+Setting $k=0$ in the definition shows that $\mathcal{A}_0(\Gamma)$ is the field of meromorphic functions on 
+$X(\Gamma)$, denoted $\mathbb{C}(X(\Gamma))$.
+
+\subsection{Meromorphic Differentials}
+Let $\Gamma$ be a congruence subgroup of ${\rm SL_2}(\mathbb{Z})$. The transformation rule for automorphic 
+forms of weight $k$ with respect to $\Gamma$, 
+\begin{equation*}
+    f(\gamma(\tau))=j(\gamma,\tau)^k f(\tau), \ \gamma\in \Gamma
+\end{equation*}
+does not make such forms $\Gamma$-invariant. On the other hand, we have obtained that $d\gamma(\tau)=j(\gamma,\tau)^{-2} d\tau$
+for $\gamma\in \Gamma$ so that at least formally the differential 
+\begin{equation*}
+    f(\tau)(d\tau)^{k/2}
+\end{equation*} 
+is truly $\Gamma$-invariant. The aim of this section is to define differentials on the Riemann surface $X(\Gamma)$. 
+The first step is to define differentials locally. Let $V$ be any open subset of $\mathbb{C}$ and let $n\in\mathbb{N}$
+be any natural number.
+\begin{definition}
+    The meromorphic differentials on $V$ of degree $n$ are 
+    \begin{equation*}
+        \Omega ^{\otimes n}(V)=\{f(q)(dq)^n:f \text{ is meromorphic on } V\}
+    \end{equation*}
+    where $q$ is the variable on $V$.
+\end{definition} 
+These form a vector space over $\mathbb{C}$ under the natural definitions of addition and scalar multiplication, 
+$f(q)(dq)^n+g(q)(dq)^n=(f+g)(dq)^n$ and $c(f(q)(dq)^n)=(cf)(dq)^n$. The sum over all degrees, 
+\begin{equation*}
+    \Omega(V)=\oplus_{n\in\mathbb{N}}\Omega^{\otimes n}(V)
+\end{equation*}
+naturally forms a ring under the definition $(dq)^n(dq)^m=(dq)^{n+m}$
+
+\begin{theorem}
+    Let $k\in \mathbb{N}$ be even and let $\Gamma$ be a congruence subgroup of ${\rm SL_2}(\mathbb{Z})$. The map
+    \begin{align*}
+        w:\mathcal{A}_k(\Gamma) & \longrightarrow  \Omega^{\otimes k/2}(X(\Gamma))\\
+        f & \longmapsto  (\omega_j)_{j\in J}
+    \end{align*}
+    where $(w_j)_{j\in J}$ pulls back to $f(\tau)(d\tau)^{k/2} \in \Omega ^{\otimes k/2}(\mathbb{H})$, is an isomorphism
+    of complex vector spaces.
+\end{theorem}
+\begin{proof}
+    The map $\omega$ is defined since we have just constructed $\omega(f)$. Clear $\omega$ is $\mathbb{C}$-linear and injective.
+    And $\omega$ is surjective because every $(\omega_j)\in \Omega ^{\otimes k/2}(X(\Gamma))$ pulls back to some 
+    $f(\tau)(d\tau)^{k/2}\in \Omega^{k/2}(\mathbb{H})$ with $f \in \mathcal{A}(\Gamma)$.
+\end{proof}
+For $k$ positive and even, $\mathcal{A}_k(\Gamma)$ takes the form $\mathbb{C(X(\Gamma))}f$ where $\mathbb{C}(X(\Gamma))$ is the 
+field of meromorphic functions on $X(\Gamma)$ and $f$ is any nonzero element of $\mathcal{A}_k(\Gamma)$. 
+\begin{equation*}
+    \mathcal{A}_k(\Gamma)=\mathbb{C}(X(\Gamma))f=\{f_0f:f_0\in \mathbb{C}(X(\Gamma))\}
+\end{equation*}
+Now we focus on the specific case, the weight $2$ cusp forms $\mathcal{S}_2(\Gamma)$ are isomorphism as a complex vector
+space to the degree $1$ holomorphic differentials on $X(\Gamma)$, denoted $\Omega^{1}_{hol}(X(\Gamma))$. 

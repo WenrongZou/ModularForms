@@ -1,0 +1,448 @@
+    
+    \section{Basic definition of modular forms}
+
+    A modular form is a holomorphic function on the upper half complex plane $\mathcal{H} $, which have two positive integer parametes: weight $k$ and level $N$. We concentrate on level 1 first for simplicity.
+    
+    Let \(\mathrm{SL}_2(\mathbb{Z})\) be the group of $ 2\times 2 $ matrix with determinant 1 and integer entries.  $\forall \tau \in \mathcal{H}, \gamma \in \mathrm{SL}_2(\mathbb{Z}) $ we define $\gamma(\tau) = \frac{a\tau+b}{c\tau+d} $, where 
+    $\gamma = 
+        \left(
+            \begin{smallmatrix}
+            a & b \\
+            c & d
+            \end{smallmatrix}
+        \right)
+    $.
+    A modular form of level 1 can be viewed as defined on $ \mathrm{SL}_2(\mathbb{Z})\backslash \mathcal{H} $, which means that $\forall \tau\in \mathcal{H}$ we can know the value of $\gamma(\tau), \forall \gamma$ form the value of $\tau$.
+
+    \begin{definition}[Modular forms of level 1] \label{def1}
+        A \textit{modular form of level 1 and weight k} is a holomorphic function $f: \mathcal{H} \to \mathbb{C}$ with the following propties:
+        \begin{enumerate}
+            \item $f(\gamma(\tau))=(c\tau +d)^kf(\tau), \forall \gamma = 
+                \left(
+                    \begin{smallmatrix}
+                    a & b \\
+                    c & d
+                    \end{smallmatrix}
+                \right)\in \mathrm{SL}_2(\mathbb{Z})$ and $\forall\tau \in \mathcal{H}$.
+            \item $f$ is holomorphic at $\infty$.
+        \end{enumerate}
+
+        The set of all modular forms of level 1 and weight k is denoted by $M_k(\mathrm{SL}_2(\mathbb{Z}))$. 
+    \end{definition}
+
+    \begin{remark}
+        \begin{enumerate}
+            \item To make $f(\infty)$ well defined, we first notice that we have $f(\tau+1)=f(\tau)$ if we choose 
+            $\gamma= \left(
+                \begin{smallmatrix}
+                1 & 1 \\
+                0 & 1
+                \end{smallmatrix}
+            \right)$ 
+            in property 1, so take the \textit{Fourier expansion} we have $$f(\tau)=\sum_{n = 0}^{\infty} a_n(f)q^n ,\quad q=e^{2\pi i\tau}.$$ So $q\rightarrow0\Leftrightarrow Im(\tau )\rightarrow\infty$, and then we define $f$ is holomorphic at $\infty$ if and only if $\lim_{Im(\tau) \to \infty}f(\tau)$ exists or equally $f(\tau)$ is bounded as $Im(\tau) \to \infty$.  
+            \item If we choose $\gamma= \left(
+                \begin{smallmatrix}
+                0 & 1 \\
+                -1 & 0
+                \end{smallmatrix}
+            \right)$ 
+            in property 1, we have $f(\gamma(\gamma(\tau)))=(-1)^kf(\tau)$, so when $k$ is odd, $M_k(\mathrm{SL}_2(\mathbb{Z}))={0}$.
+        \end{enumerate}
+    \end{remark}
+
+    And then we can define the \textit{cusp forms}:
+
+    \begin{definition}[Cusp forms]
+        A cusp form of weight k is a modular form of weight k and $a_0=0$ in its Fourier expansion or equally $\lim_{Im(\tau) \to \infty}f(\tau)=0$.
+
+        The set of all cusp forms of level 1 and weight k is denoted by $S_k(\mathrm{SL}_2(\mathbb{Z}))$.
+    \end{definition}
+
+    The name cusp form comes from the conception of cusp point, it's $\infty$ for $\mathrm{SL}_2(\mathbb{Z})$.  
+
+    \begin{example}\label{exp1}
+        \begin{enumerate}
+            \item The zero function on  $\mathcal{H}$  is a modular form of every weight, and every constant function on  $\mathcal{H}$  is a modular form of weight $0$.
+            \item For nontrivial examples, let  $k>2$  be an even integer and define the Eisenstein series of weight  $k$  to be a $2$-dimensional analog of the Riemann zeta function  $\zeta(k)=\sum_{d=1}^{\infty} 1 / d^{k}$, 
+            $$G_{k}(\tau)=\sum_{(c, d)^{\prime}} \frac{1}{(c \tau+d)^{k}}, \quad \tau \in \mathcal{H},$$
+            where the primed summation sign means to sum over nonzero integer pairs  $(c, d) \in \mathbb{Z}^{2}-\{(0,0)\}$. We can prove that $G_{k}$  is holomorphic on  $\mathcal{H}$  and its terms may be rearranged (Ferd, p4). For any  $\gamma=\left(\begin{smallmatrix}a & b \\ c & d\end{smallmatrix}\right) \in \mathrm{SL}_{2}(\mathbb{Z})$, compute that    
+            $$\begin{aligned}
+            G_{k}(\gamma(\tau)) & =\sum_{\left(c^{\prime}, d^{\prime}\right)^{\prime}} \frac{1}{\left(c^{\prime}\left(\frac{a \tau+b}{c \tau+d}\right)+d^{\prime}\right)^{k}} \\
+            & =(c \tau+d)^{k} \sum_{\left(c^{\prime}, d^{\prime}\right)^{\prime}}\frac{1}{\left(\left(c^{\prime} a+d^{\prime} c\right) \tau+\left(c^{\prime} b+d^{\prime} d\right)\right)^{k}}.
+            \end{aligned}$$
+            But as  $\left(c^{\prime}, d^{\prime}\right)$  runs through  $\mathbb{Z}^{2}-\{(0,0)\}$, so does  $\left(c^{\prime} a+d^{\prime} c, c^{\prime} b+d^{\prime} d\right)=   \left(c^{\prime}, d^{\prime}\right)\left(\begin{smallmatrix}a & b \\ c & d\end{smallmatrix}\right)$, and so the right side is  $(c \tau+d)^{k} G_{k}(\tau)$, showing that $ G_{k}$  is weakly modular of weight  $k$. Finally,  $G_{k}$  is bounded as  $\operatorname{Im}(\tau) \rightarrow \infty$, so it is a modular form.          
+        \end{enumerate}
+    \end{example}
+
+    To define the modular forms for general level, we need the conception of congruence subgroup. Let $\Gamma_0(N), \Gamma_1(N), \Gamma(N)$ denote the subgroup of $\mathrm{SL}_2(\mathbb{Z})$ with all matrix of the form 
+    \begin{equation*}
+        \left(
+        \begin{smallmatrix}
+            * & * \\
+            0 & *
+        \end{smallmatrix}
+    \right)(mod N),
+    \qquad
+    \left(
+        \begin{smallmatrix}
+            1 & * \\
+            0 & 1
+        \end{smallmatrix}
+    \right)(mod N),
+    \qquad
+    \left(
+        \begin{smallmatrix}
+            1 & 0 \\
+            0 & 1
+        \end{smallmatrix}
+    \right)(mod N)
+    \end{equation*}
+    respectively, where $*$ denotes any integer $mod N$. It's easy to see that $\Gamma(N)\subset \Gamma_1(N)\subset \Gamma_0(N)$, and when $N|M, \Gamma_i(M)\supset \Gamma_i(N), \forall i$.
+
+    \begin{definition}[Congruence subgroups]
+        A subgroup $\Gamma$ of $\mathrm{SL}_2(\mathbb{Z})$ is a \textit{congruence subgroup of level N} if it contains $\Gamma(N)$ for some $N$.
+    \end{definition}
+
+    \begin{remark}
+        \begin{enumerate}
+            \item $\Gamma_0(N), \Gamma_1(N), \Gamma(N)$ are congruence subgroups of level N.
+            \item If $N|M$ and $\Gamma$ is a congruence subgroup of level N, then it's a congruence subgroups of level M. 
+        \end{enumerate}
+    \end{remark}
+
+    A modular form of level N satisfied similar propties of Definition\ref{def1}, but we need to konw the cusp points for general congruence subgroups first. We expend  the action $\mathrm{SL}_2(\mathbb{Z})$ on $\mathcal{H}$ to $\mathcal{H}\cup \mathbb{Q}\cup {\infty}$ as the following:
+    \begin{enumerate}
+        \item $\forall q\in \mathbb{Q}$, we define $\gamma(q)=\frac{aq+b}{cq+d}$ is another rational number if $cq+d\neq 0$ and $\gamma(q)=\infty$ otherwise.
+        \item For $\infty$, we define $\gamma(\infty)=a/c$ if $c\neq 0$ and $\gamma(\infty)=\infty$ otherwise.
+    \end{enumerate}
+    As $\Gamma$ is a subgroup of $\mathrm{SL}_2(\mathbb{Z})$, we can restrict this action on $\Gamma$, and the orbits of this restriction  on $\mathbb{Q}\cup {\infty}$ is the cusp points of $\Gamma$. 
+
+    As the level 1 case, the modular form of level N need to be holomorphic at all cusp forms, to make the value of $f$ on $\mathbb{Q}$ well defined, we define an action of $\mathrm{SL}_2(\mathbb{Z})$ on holomorphic functions on $\mathcal{H}$ by: $$(f[\gamma]_k(\tau))=j(\gamma, \tau)^{-k}f(\gamma(\tau)), \quad \forall \gamma\in \mathrm{SL}_2(\mathbb{Z}) , \quad\tau \in \mathcal{H},$$ where $ j(\gamma, \tau)=c\tau+d$.
+
+    \begin{lemma}
+        For this action, $\forall \gamma, \gamma'\in \mathrm{SL}_2(\mathbb{Z})$ and $\tau\in \mathcal{H}$, we have:
+        \begin{enumerate}
+            \item $j(\gamma\gamma',\tau)=j(\gamma,\gamma'(\tau))j(\gamma',\tau)$,
+            \item $(\gamma\gamma')(\tau)=\gamma(\gamma'(\tau))$,
+            \item $[\gamma\gamma']_k=[\gamma]_k[\gamma']_k$,
+            \item $Im(\gamma(\tau))=\frac{Im(\tau)}{\vert j(\gamma,\tau)\vert^2}$,
+            \item $\frac{d\gamma(\tau)}{d\tau}=\frac{1}{j(\gamma,\tau)^2}$.
+        \end{enumerate}
+    \end{lemma}
+
+    So this is a well defined action, it's easy to see that if $f\in M_k(\mathrm{SL}_2(\mathbb{Z}))$ then $f[\gamma]_k=f$. For a cusp point $q$ differ form $\infty$ of $\Gamma$, $\exists \gamma \in \mathrm{SL}_2(\mathbb{Z})$ s.t. $\gamma(q)=\infty$, so we can define $f(q)$ to be $f[\gamma]_k(\infty)$. With all these preparation, we can finally define the general modular forms:
+
+    \begin{definition}[Modular forms]
+        A \textit{modular form of weight k respect to $\Gamma$ (so has level N)} is a holomorphic function $f: \mathcal{H} \to \mathbb{C}$ with the following propties:
+        \begin{enumerate}
+            \item $f(\gamma(\tau))=(c\tau +d)^kf(\tau), \forall \gamma = 
+                \left(
+                    \begin{smallmatrix}
+                    a & b \\
+                    c & d
+                    \end{smallmatrix}
+                \right)\in \Gamma$ and $\forall\tau \in \mathcal{H}$, where $\Gamma$ is a congruence subgroup of level N,
+            \item $f[\alpha]_k$ is holomorphic at $\infty, \forall \alpha \in \mathrm{SL}_2(\mathbb{Z})$.
+            
+            If in additon,
+            \item $a_0=0$ in the Fourier expansion of  $f[\alpha]_k, \forall \alpha\in \mathrm{SL}_2(\mathbb{Z}) $,
+        \end{enumerate}
+        then $f$ is a cusp form of weight k respect to $\Gamma$.
+
+        The set of all modular (resp. cusp) forms of weight k with respect to $\Gamma$ denoted $M_k(\Gamma)$ (resp. $S_k(\Gamma)$).  
+    \end{definition}
+
+    \begin{example}
+        \begin{enumerate}
+            \item All modular forms of level 1 is a modular forms of any level, so the examples in Example\ref{exp1} are  examples here too.
+            \item For a generation of  Example\ref{exp1}, we extend $k$ to $k=2$, $G_{2}(\tau)$ is not a modular form, but 
+            $$ G_{2,N}(\tau)=G_{2}(\tau)-G_{2}(N\tau)$$
+            is a modular form of level N and weight 2 (Fred, p18).
+        \end{enumerate}
+    \end{example}
+
+    We need the following quite none-trivial theorem letter, for its proof, see (Fred, p85-p91).
+
+    \begin{theorem}[finite dimension]\label{finite dimension}
+        The space $M_k(\Gamma)$ (and then $S_k(\Gamma)$) of any level as a complex vector space has finite dimension.
+    \end{theorem}
+    
+    \section{Connection between modular forms and elliptic curves}
+
+    In this section, we want to represent the definition domain of modular forms by the set related to elliptic curves. And then we can look modular forms as a function defined on the space of elliptic curves.
+    To do this, we need the following definition first:
+
+    \begin{definition}[Modular curve]
+        For any congruence subgroup  $\Gamma$  of  $\operatorname{SL}_{2}(\mathbb{Z})$ , acting on the upper half plane  $\mathcal{H}$  from the left, the modular curve  $Y(\Gamma)$  is defined as the quotient space of orbits under  $\Gamma$ ,
+        $$Y(\Gamma)=\Gamma \backslash \mathcal{H}=\{\Gamma \tau: \tau \in \mathcal{H}\}.$$
+        The modular curves for  $\Gamma_{0}(N)$, $\Gamma_{1}(N)$ , and  $\Gamma(N)$  are denoted:
+        $$Y_{0}(N)=\Gamma_{0}(N) \backslash \mathcal{H}, \quad Y_{1}(N)=\Gamma_{1}(N) \backslash \mathcal{H}, \quad Y(N)=\Gamma(N) \backslash \mathcal{H}.$$
+    \end{definition}
+
+    And then there is a bijection of spaces as following:
+
+    \begin{theorem}[Moduli space and Modular curve]
+        Let  $N$  be a positive integer. The moduli space for  $\Gamma_{0}(N)$  is
+        $$\mathrm{S}_{0}(N)=\left\{\left[E_{\tau},\left\langle 1 / N+\Lambda_{\tau}\right\rangle\right]: \tau \in \mathcal{H}\right\} .$$
+        Two points  $\left[E_{\tau},\left\langle 1 / N+\Lambda_{\tau}\right\rangle\right]$  and $ \left[E_{\tau^{\prime}},\left\langle 1 / N+\Lambda_{\tau^{\prime}}\right\rangle\right]$  are equal if and only if $ \Gamma_{0}(N) \tau=\Gamma_{0}(N) \tau^{\prime}.$  Thus there is a bijection $\psi_{0}: \mathrm{S}_{0}(N) \stackrel{\sim}{\longrightarrow} Y_{0}(N)$, $\left[\mathbb{C} / \Lambda_{\tau},\left\langle 1 / N+\Lambda_{\tau}\right\rangle\right] \mapsto \Gamma_{0}(N) \tau $.
+        
+        
+    \end{theorem}
+        
+    \begin{remark}
+        The element in the space $\mathrm{S}_{0}(N)$ is called the enhanced elliptic curve.
+        
+        Especially when $N=1$, the above gives  a bijecton between all elliptic curves and the modular space of $\mathrm{SL}_2(\mathbb{Z})$.
+    \end{remark}
+
+    And then we can define the correspondence of functions, we define the functions on  $\mathrm{S}_{0}(N)$ first. 
+
+    \begin{definition}
+        A complex-valued function  F  of the enhanced elliptic curves for  $\Gamma_{0}(N)$  is degree-$k$  homogeneous with respect to  $\Gamma_{0}(N)$  if for every nonzero complex number  $m$,
+        $$F(\mathbb{C} / m \Lambda, m C) =m^{-k} F(\mathbb{C} / \Lambda, C) .$$
+    \end{definition}
+
+    The correspondence is as following:
+
+    \begin{theorem}
+        There is a bijection of degree-$k$  homogeneous function with respect to  $\Gamma_{0}(N)$ on $\mathrm{S}_{0}(N)$ and modular forms of weight k with respect to $\Gamma_{0}(N)$ by:
+        $$f(\tau)=F\left(\mathbb{C} / \Lambda_{\tau},\left\langle 1 / N+\Lambda_{\tau}\right\rangle\right). $$ The modular form f is called the corresponding \textit{dehomogenized function} of $F$. 
+    
+    \end{theorem}
+
+    \begin{remark}
+        \begin{enumerate}
+            \item Especially when $N=1$, the above gives  a bijecton between all degree-$k$  homogeneous functions with respect to  $\mathrm{SL}_2(\mathbb{Z})$ on all elliptic curves and all modular forms with level 1 and weight k.
+            \item $f$  is weight-k  invariant with respect to  $\Gamma_{0}(N) $. To see this, let  $\gamma=\left(
+                \begin{smallmatrix}
+                a & b \\
+                c & d
+                \end{smallmatrix}
+            \right) \in \Gamma_{0}(N)  $, and for any  $\tau \in \mathcal{H}$,  let  $m=(c \tau+d)^{-1}$ . Then, using the condition  $(c, d) \equiv(0,1)(\bmod N)$  at the third step,
+            $$\begin{aligned}
+            f(\gamma(\tau)) & =F\left(\mathbb{C} / \Lambda_{\gamma(\tau)}, \langle1 / N+\Lambda_{\gamma(\tau)}\rangle\right)=F\left(\mathbb{C} / m \Lambda_{\tau}, \langle m(c \tau+d) / N+m \Lambda_{\tau}\rangle\right) \\
+            & =m^{-k} F\left(\mathbb{C} / \Lambda_{\tau},\langle 1 / N+\Lambda_{\tau}\rangle\right)=(c \tau+d)^{k} f(\tau) .
+            \end{aligned}$$
+        \end{enumerate}
+    \end{remark}
+
+    With all the preparation on the last two section, we can eventually study the mian tool to deal with modular forms: Hecke operators.
+
+    \section{Hecke operators} 
+
+    \subsection{$L$-series of a modular form}
+ 
+    Let $ f$  be a cusp form of weight  $2k$  for  $\Gamma_{0}(N)$ . It can be expressed
+    $$f(s)=\sum_{n \geq 1} c(n) q^{n}, \quad q=e^{2 \pi i z}, \quad c(n) \in \mathbb{C} .$$
+    The  L-series of $ f$  is the Dirichlet series
+    $$L(f, s)=\sum_{n \geq 1} c(n) n^{-s}, \quad s \in \mathbb{C} .$$
+
+    There is an estimate that $\vert c(n)\vert \leq Cn^k$ for some constant $C$, so its Dirichlet series is convergent for $\mathfrak{R} > k+1$.
+
+    The \textit{Mellin transform} can give us  an alternative definition of the $L$-series of a modular form by integral. 
+
+    \begin{definition}[Mellin transform]
+        Let $f=\sum_{n \geq 1}c(n)q^n$ be a cusp form, the Mellin transform of $f$ is:
+        $$g(s)=\int_{0}^{\infty} f(iy)y^s \,\frac{dy}{y}.$$
+    \end{definition}
+
+    \begin{remark}
+        Ignoring problem of convergence, we have:
+        $$
+        \begin{aligned}
+            g(s) & =\int_{0}^{\infty} \sum_{n=1}^{\infty} c(n) e^{-2 \pi n y} y^{s} \frac{d y}{y} \\
+            & =\sum_{n=1}^{\infty} c(n) \int_{0}^{\infty} e^{-t}(2 \pi n)^{-s} t^{s} \frac{d t}{t} \quad(t=2 \pi n y) \\
+            & =(2 \pi)^{-s} \Gamma(s) \sum_{n=1}^{\infty} c(n) n^{-s} \\
+            & =(2 \pi)^{-s} \Gamma(s) L(f, s) .
+        \end{aligned}
+        $$
+
+        So this  gives an alternative definition of $L(f, s)$.
+    \end{remark}
+
+    \subsection{Connection with the $L$-series of an elliptic curves}
+
+    By the definition, for  an elliptic curve $E$ over $\mathbb{Q}$,
+    $$L(E,s)=\prod_{\text{$p$ good}}\frac{1}{1-a_pp^{-s}+p^{1-s}}\prod_{\text{$p$ bad} }\frac{1}{1-a_pp^{-s}},$$
+    where $a_p$ can be defined  by $E$ and whether a prime number $p$ is good or bad can be read from the conductor $N$ of $E$.
+    
+    We can expand this product and get the Dirichlet series:
+    $$L(E , s)=\sum_{n \geq 1}  a_nn^{-s}.$$
+    It has the following propties:
+    \begin{enumerate}
+        \item $E \sim E'$ as elliptic curves, if and only if $L(E,s)=L(E',s)$.
+        \item It has an Euler product representation, by definition.
+        \item Conjecturally it can be extended analytically on the whole complex plane satisfies the functional equation 
+         $$\Lambda(E,s)=\omega_E\Lambda(E,2-s),\quad\omega_E=\pm 1,$$
+         where $\Lambda(E,s)=N^{s/2}(2\pi)^{-s}\Gamma(s)L(E,s)$.
+    \end{enumerate}
+
+    Our aim now is to find modular forms which  can have a $L$-function equals to a $L$-function of an  elliptic curve. We do this by finding modular forms which have $L$-functions satisfied the above three properties.  We can know from the last section that the first property can be fit automatically.
+
+    The Hecke operators,  which will be defined on next subsection, can help us to find those modular forms satisfied the second property. We give its stretch first.
+
+    \begin{property}
+        For general $f$, $L(f,s)$ has an Euler product of the form:
+        $$L(f,s)=\prod_{gcd(p,N)=1}\frac{1}{1-c(p)p^{-s}+p^{2k-1-s}}\prod_{p\vert N }\frac{1}{1-c(p)p^{-s}},$$
+        if and only if:
+        $$(*)
+        \left\{\begin{aligned}
+            c(m n) & =c(m) c(n), \quad \text { if } \operatorname{gcd}(m, n)=1 ; \\
+            c(p) \cdot c\left(p^{r}\right) & =c\left(p^{r+1}\right)+p^{2 k-1} c\left(p^{r-1}\right),\quad r \geq 1, \text { if } p \text { is prime to } N \text {; } \\
+            c\left(p^{r}\right) & =c(p)^{r}, r \geq 1, \quad \text { if } p \mid N .
+        \end{aligned}\right.
+        $$
+    \end{property}
+    
+    This  can be proved by expand directly. And Hecke proved the following theorems.
+
+    \begin{theorem}[Hecke]\label{Hecke1}
+        The Hecke operators $T(n)$, $ n\in \mathbb{N}$ to be  defined letter have the following properties:
+        \begin{enumerate}
+            \item $T(m n)  =T(m)T(n), \text {if } \operatorname{gcd}(m, n)=1 ;$
+            \item $T(p) \cdot T\left(p^{r}\right)  =T\left(p^{r+1}\right)+p^{2 k-1} T\left(p^{r-1}\right), r \geq 1, \text { if } p \text { is prime to } N \text {; }$
+            \item $T\left(p^{r}\right) =T(p)^{r}, r \geq 1, \text {if } p \mid N;$
+            \item all $T(n)$ commute.
+        \end{enumerate}
+    \end{theorem}
+    
+    \begin{theorem}[Hecke]\label{Hecke2}
+        Let $f\in S_{2k}(\Gamma_0(N))$ be a simultaneously eigenvector for all $T(n)$, let $T(n)f=\lambda(n )f $ and let 
+        $$f(s)=\sum_{n \geq 1} c(n) q^{n}, \quad q=e^{2 \pi i z}.$$
+        Then $c(n)=\lambda(n)c(1)$.
+    \end{theorem}
+
+    \begin{remark}
+        By the above theorems and properties, let $f(s)=\sum_{n \geq 1} c(n) q^{n}$  with  $c(1)=1$ be the one in the above theorem, then 
+        $$L(f,s)=\prod_{gcd(p,N)=1}\frac{1}{1-c(p)p^{-s}+p^{2k-1-s}}\prod_{p\vert N }\frac{1}{1-c(p)p^{-s}}.$$
+    \end{remark}
+
+    So our aim in the following subsections is to define the Hecke operators and find the simultaneously eigenvectors.
+    
+    For the third property, we define an operator first:
+    $$W_N:S_k(\Gamma_0(N))\to S_k(\Gamma_0(N)),\quad f\mapsto (\tau\mapsto i^kN^{-k/2}\tau^{-k}f(\frac{-1}{N\tau})).$$
+    It's easily to see that $W_N^2=1$, so decomposite  by the eigenspaces we have: 
+    $$S_k(\Gamma_0(N))=S_k(\Gamma_0(N))^{+1}\oplus S_k(\Gamma_0(N))^{-1}.$$
+
+    \begin{theorem}[Hecke]
+        Let $f\in S_{2k}(\Gamma_0(N))^\epsilon$, where $\epsilon=\pm 1$. Then $L(f,s)$  can be extended analytically on the whole complex plane satisfies the functional equation: 
+        $$\Lambda(f,s)=\epsilon (-1)^k\Lambda(f,k-s),$$
+        where $\Lambda(f ,s)=N^{s/2}(2\pi)^{-s}\Gamma(s)L(f,s)$.
+    \end{theorem}
+
+    \begin{remark}
+        We know by the Mellin transform that $\Lambda(f,s)=N^{s/2}g(s)$, by some tricks we can extend the integral in $g(s)$ to the whole complex plane, so $\Lambda(f,s)$ can be extended analytically by Mellin transform.
+    \end{remark}
+
+    For $k=2$, this is exactly the functional equation that the $L$-function of an  elliptic curve has. So we archive the third aim.
+
+    \subsection{Definition of Hecke operators}
+
+    In Section 2, we have explained the bijection from moduli space to  modular curve, and then get a bijection of degree-k homogeneous function with respect to $\Gamma_0(N )$ on $S_0(N )$ and modular forms of weight $k$ with respect to $\Gamma_0(N )$. 
+    To define Hecke operators, we concentrate on $N=1$ first. To define an operator on $S_{2k}(\Gamma_0(1))=S_{2k}(\mathrm{SL}_2(\mathbb{Z}))$, we first define a operator on  $\mathcal{L}$, the space of all elliptic curves, or equally, on $\mathcal{D}$, the free alelian group generated by $\mathcal{L}$.
+
+    For $n\geq 1$, we define:
+    $$T(n): \mathcal{D} \to \mathcal{D}, \Lambda\mapsto \sum_{(\Lambda:\Lambda')=n}\Lambda'$$
+    and
+    $$R(n): \mathcal{D} \to \mathcal{D}, \Lambda\mapsto n\Lambda.$$
+
+    And we can prove by some easy properties of elliptic curves that:
+
+    \begin{proposition}
+        \begin{enumerate}
+            \item $T(m n)  =T(m)\circ  T(n), \quad \text { if } \operatorname{gcd}(m, n)=1 ;$
+            \item $T(p) \circ T\left(p^{r}\right)  =T\left(p^{r+1}\right)+pR(p)\circ T\left(p^{r-1}\right).$
+        \end{enumerate}
+    \end{proposition}
+
+    And by using these two properties repeatedly, we can get:
+    
+    \begin{corollary}
+        For any $m,n$,
+        $$T(m)\circ T(n)=\sum_{d|gcd(m,n)} d\cdot R(d)\circ T(mn/d^2).$$
+    \end{corollary}
+
+    It's easy to see that $R(n)$ are commute to all other  operators, and by the above corollary, we have:
+
+    \begin{corollary}
+        All $T(n),R(n),n\geq 1$ are commute to each other.
+    \end{corollary}
+
+    For a function $F:\mathcal{L}\to \mathbb{C}$, it equals a function $F:\mathcal{D}\to \mathbb{C}$ by extend linearity. The action of $T(n),R(n),n\geq 1$ on it is defined by:
+    $$(T\cdot F)(\Lambda)=F(T\Lambda),\quad T=T(n) \text{ or } R(n),n\geq 1.$$
+    And if $F$ is degree-k homogeneous function with respect to $\Gamma_0(1)$, then by definition: $R(n)\cdot F=n^{-2k}F$. Composing this with the above properties, we have immediatly:
+
+    \begin{proposition}\label{Hecke3}
+        Let $F$ be of degree-k homogeneous with respect to $\Gamma_0(1)$, then so dose $T(n)\cdot F$, and 
+        \begin{enumerate}
+            \item $T(m n)\cdot F  =T(m)\cdot  T(n)\cdot F, \quad \text { if } \operatorname{gcd}(m, n)=1 ;$
+            \item $T(p) \cdot T\left(p^{r}\right) \cdot F =T\left(p^{r+1}\right) \cdot F+p^{1-2k} T\left(p^{r-1}\right)\cdot F.$
+        \end{enumerate}
+    \end{proposition}
+
+    And then we can finally define the Hecke operators for $N=1$.
+
+    \begin{definition}
+        Let $f\in S_{2k}(\Gamma_0(1))$, and let $F$ be the correspondence function on $\mathcal{L}$, we define Hecke operators $T(n),n\geq 1$ on $S_{2k}(\Gamma_0(N))$ to be:
+        $$(T(n)\cdot f)(z)=n^{2k-1}(T(n)\cdot F)(\Lambda(z,1)),$$
+        which is the correspondence function of $n^{2k-1} T(n)\cdot F$.
+    \end{definition}
+
+    For the general case $N\neq 1$, all things are similar, except in the second property of Proposition\ref{Hecke3}, where it holds only when $gcd(p,N)=1$, and when $p|N$, it is $T(p^r)\cdot F=T(p)^r \cdot F, r\geq 1$.
+
+    The Theorem\ref{Hecke1} follows easily from Proposition\ref{Hecke3}. And for a proof of Theorem\ref{Hecke2}, see (Milne, p202-p203).
+
+    \subsection{The spectral theorem and Petersson inner product}
+
+    In Subsection2, we conclude that our aim in these  subsections is to define the Hecke operators and find the simultaneously eigenvectors, we have achieve the first part  in the last subsection, for the second part, we need a theorem form linear algebra first, which the proof of it can be find on (Milne, p204).
+
+    \begin{theorem}[Spectral theorem]\label{The spectral theorem}
+        Let $V$ be a finite dimension complex vector space with a positive-definite hermitian form $<,>$. Let $\alpha_1,\alpha_2,...$ be a sequence ofcommuting self-adjiont linear maps $V\to V$; then $V$ has a basis of consisting of vectors that are eigenvectors for all $\alpha_i$.  
+    \end{theorem}
+
+    So to find the  simultaneously eigenvectors, we need a hermitian form on $S_{2k}(\Gamma_0(N))$ first. We define it by a special integral, to define this integral, we need the measure defined by: $\mu (U)=\iint_U \frac{dxdy}{y^2}$ for any open set $U$ in the complex plane.
+    
+    \begin{proposition}
+        For any open set $U$ in the complex plane, we have $\mu(\gamma U)=\mu(U), \forall \gamma \in \mathrm{SL}_2(\mathbb{R})$.
+    \end{proposition}
+
+    This can be proved by a direct computation. And then we define the hermitian form, which is called \textit{Petersson inner product}.
+
+    \begin{definition}[Petersson]
+        Let $f,g\in S_{2k}(\Gamma_0(N))$, then 
+        $$<f,g>=\iint_D f\overline{g}y^{2k} \frac{dxdy}{y^2},$$
+        is the Petersson inner product of $f,g$, where $D$ is the fundamental area of $\Gamma_0(N)$ (i.e. a connect set of represent elements of $Y_0(N)$).
+    \end{definition}
+
+    \begin{remark}
+        We can prove easily that $f\overline{g}y^{2k}$ is invariant under $\Gamma_0(N)$, so it is well defined on $D$.
+    \end{remark}
+
+    \begin{theorem}[Petersson]\label{Petersson}
+        The above integral converges provided at least one of $f$ or $g$ is a cusp form. It therefore defines a positive-definite hermitian form on the vector space $S_{2k}(\Gamma_0(N))$ of cusp forms. The Hecke operators $T(n)$ are self-adjoint for all $n$ relatively prime to $N$.
+    \end{theorem}
+    \begin{proof}[Proof]
+        Fairly straightforward calculus, see \cite{Kna92}.
+    \end{proof}
+
+    \begin{remark}
+        By composing Theorem\ref{finite dimension}, Theorem\ref{The spectral theorem}, and Theorem\ref{Petersson}, we have a decomposition:
+        $$S_{2k}(\Gamma_0(N))=\oplus V_i $$
+        of $S_{2k}(\Gamma_0(N))$ into a direct sum of orthogonal subspaces $V_i$, each of which is a simultaneous eigenspace for all $T(n)$ with $gcd(n, N)=1$.
+    \end{remark}
+
+    Unfortunately, $W_N$ dosen't commute with the $T(p)s,p|N$, while both of them  commute with the $T(p)s$, $gcd(p,N)=1$. To find the modular forms which satisfy this property, we need the last constraint: new forms.
+
+    \subsection{Oldforms, Newforms and Eigenforms}
+
+    The problem left by the last subsection has a simple remedy. If  $M \mid N$, then  $\Gamma_{0}(M) \supset \Gamma_{0}(N)$, and so  $\mathcal{S}_{2 k}\left(\Gamma_{0}(M)\right) \subset \mathcal{S}_{2 k}\left(\Gamma_{0}(N)\right) $. Recall that the  $N$  turns up in the functional equation for  $L(f, s)$, and so it is not surprising that we run into trouble when we mix  $f$s of level  $N$  with  $f$s that are really of level  $M \mid N$,  $M<N$. 
+    
+    The way out of the problem is to define a cusp form that is in some subspace  $\mathcal{S}_{2 k}\left(\Gamma_{0}(M)\right)$, $M \mid N$, $ M<N$, to be old. The old forms form a subspace  $\mathcal{S}_{2 k}^{\text {old }}\left(\Gamma_{0}(N)\right)$  of  $\mathcal{S}_{2 k}\left(\Gamma_{0}(N)\right)$, and the orthogonal complement  $\mathcal{S}_{2 k}^{\text {new }}\left(\Gamma_{0}(N)\right)$  is called the space of new forms. It is stable under all the operators  $T(n)$  and  $W_{N}$, and so  $\mathcal{S}_{2 k}^{\text {new }}$  decomposes into a direct sum of orthogonal subspaces  $W_{i}$, 
+    $$\mathcal{S}_{2 k}^{\mathrm{new}}\left(\Gamma_{0}(N)\right)=\bigoplus W_{i}$$ 
+    each of which is a simultaneous eigenspace for all  $T(n)$  with  $\operatorname{gcd}(n, N)=1$. Since the  $T(p)$  for  $p \mid N$  and  $W_{N}$  each commute with the  $T(n)$  for  $\operatorname{gcd}(n, N)=  1$, each stabilizes each  $W_{i}$. And then we have the following theorem.
+
+    \begin{theorem}[Atkin-Lehner 1970]
+        The spaces  $W_{i}$  in the above decomposition all have dimension $1$.
+    \end{theorem}
+
+    We take the modular form with $c(0)=1$ in $W_{i}$, then it is  naturally the eigenvector of  $T(p)$  for  $p \mid N$  and  $W_{N}$. So they are exactly  the modular forms we need, which is called Eigenforms.

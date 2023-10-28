@@ -1,0 +1,29 @@
+\contentsline {section}{\numberline {1}Basic definition of modular forms}{3}{section.1}%
+\contentsline {section}{\numberline {2}Connection between modular forms and elliptic curves}{5}{section.2}%
+\contentsline {section}{\numberline {3}Hecke operators}{6}{section.3}%
+\contentsline {subsection}{\numberline {3.1}$L$-series of a modular form}{6}{subsection.3.1}%
+\contentsline {subsection}{\numberline {3.2}Connection with the $L$-series of an elliptic curves}{7}{subsection.3.2}%
+\contentsline {subsection}{\numberline {3.3}Definition of Hecke operators}{9}{subsection.3.3}%
+\contentsline {subsection}{\numberline {3.4}The spectral theorem and Petersson inner product}{10}{subsection.3.4}%
+\contentsline {subsection}{\numberline {3.5}Oldforms, Newforms and Eigenforms}{10}{subsection.3.5}%
+\contentsline {section}{\numberline {4}Meromorphic Differentials}{11}{section.4}%
+\contentsline {subsection}{\numberline {4.1}Automorphic Forms}{11}{subsection.4.1}%
+\contentsline {subsection}{\numberline {4.2}Meromorphic Differentials}{12}{subsection.4.2}%
+\contentsline {section}{\numberline {5}Elliptic Curves}{13}{section.5}%
+\contentsline {subsection}{\numberline {5.1}Elliptic curves in arbitrary characteristic}{13}{subsection.5.1}%
+\contentsline {subsection}{\numberline {5.2}The reduction of elliptic curves over $\mathbb {Q}$}{13}{subsection.5.2}%
+\contentsline {subsection}{\numberline {5.3}Reduction of the points on Elliptic curves}{15}{subsection.5.3}%
+\contentsline {subsection}{\numberline {5.4}Reduction of algebraic curves and maps}{15}{subsection.5.4}%
+\contentsline {subsection}{\numberline {5.5}Igusa's Theorem}{16}{subsection.5.5}%
+\contentsline {section}{\numberline {6}Statement of the main theorem}{17}{section.6}%
+\contentsline {section}{\numberline {7}Get an Elliptic curve from a cusp form}{17}{section.7}%
+\contentsline {subsection}{\numberline {7.1}Jacobian variety of a Riemann surface}{18}{subsection.7.1}%
+\contentsline {section}{\numberline {8}The relation between the L-Series of $E_f$ and the L-Series of $f$ }{19}{section.8}%
+\contentsline {subsection}{\numberline {8.1}The Hecke correspondence}{19}{subsection.8.1}%
+\contentsline {subsection}{\numberline {8.2}The Frobenius map}{20}{subsection.8.2}%
+\contentsline {subsection}{\numberline {8.3}The Eichler-Shimura relation}{21}{subsection.8.3}%
+\contentsline {subsection}{\numberline {8.4}The zeta function of an elliptic curve}{22}{subsection.8.4}%
+\contentsline {subsection}{\numberline {8.5}The action of the Hecke operators on $H_1(E,\mathbb {Z})$}{22}{subsection.8.5}%
+\contentsline {section}{\numberline {9}Another Proof of Eichler-Shimura Relation}{22}{section.9}%
+\contentsline {subsection}{\numberline {9.1}Further discussion for Hecke operator}{23}{subsection.9.1}%
+\contentsline {subsection}{\numberline {9.2}Proof of Eichler-Shimura Relation}{23}{subsection.9.2}%
